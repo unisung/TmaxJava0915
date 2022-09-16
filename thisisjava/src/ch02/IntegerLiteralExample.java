@@ -10,5 +10,6 @@ public class IntegerLiteralExample {
 		System.out.println(var2);
 		System.out.println(var3);
 		System.out.println(var4);
+	
 	}
 }
