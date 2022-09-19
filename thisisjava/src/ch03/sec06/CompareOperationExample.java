@@ -32,12 +32,24 @@ public class CompareOperationExample {
 		//String의 문자열 값 "" 비교는 equals() 메소드 를 사용
 		String str1 = "자바";//C790(12*16^3+7*16^2+9*16+0), BC14(11*16^3+12*16^2+1*16^1+4)
 		String str2 = "Java";//65 97 118 97
+		String str3 = "자바";
+		String str4 = new String("자바");
+		
 		boolean result8 = (str1 == str2); //str1과 str2가 참조하고있는 문자열(String)객체의 번지수(hash코드) 비교
 		boolean result9 = (!str1.equals(str2));
 		
+		
+		
 		//str1과 str2 변수가 저장하고 있는 String객체의 번지수
 		System.out.println(str1.hashCode());
+		System.out.println(str3.hashCode());
+		System.out.println(str4.hashCode());
 		System.out.println(str2.hashCode());
+		
+		
+		System.out.println(System.identityHashCode(str1));
+		System.out.println(System.identityHashCode(str3));
+		System.out.println(System.identityHashCode(str4));
 		
 		System.out.println("result8: "+result8);
 		System.out.println("result9: "+result9);
