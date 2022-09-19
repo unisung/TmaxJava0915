@@ -6,6 +6,16 @@ public class OperationPromotionExample {
 		byte v2 = 20;//byte타입 변수 = byte타입
 		//byte result2 =(byte)(v1 + v2);//byte타입 변수 = byte + byte => int + int
 		int result2 = v1 + v2;//
+		
+		int a =10;
+		int b =20;
+		
+		int res =(byte)a + (byte)b;// byte타입 + byte타입 => int타입 +int타입 =int타입으로 변환
+		// 정수타입 (byte,short,char, int) -> 연산시 int타입으로 변환하여 계산됨. -default타입 - int
+		long l1 = 10000;
+		// 실수타입 (float, double) -> 연산시 double타입으로 변환하여 계산됨. - default타입 - double
+		float f1 = 3.14f;//
+		
         
 		byte result1 = 10 + 20;//리터럴 - 컴파일시 계산되어 바뀜(byte)
 		
