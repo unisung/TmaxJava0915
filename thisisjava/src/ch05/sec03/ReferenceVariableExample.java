@@ -8,6 +8,7 @@ public class ReferenceVariableExample {
 		String name2 = new String("홍길동");
 		System.out.println(System.identityHashCode(name2));
 		
+		//name2에 저장되어있는 주소값을 name3에 저장.
 		String name3 = name2;
 		System.out.println(System.identityHashCode(name3));
 		
@@ -28,13 +29,12 @@ public class ReferenceVariableExample {
                                 +"이고\n,name3가 참조하는 객체의 주소는 : "+System.identityHashCode(name3)+"로 다릅니다.");
 		}
 		
+		System.out.println("비교하는 객체가 동등한지 비교(equivalent)");
 		System.out.println("--------------------");
 		System.out.println(name1.hashCode());
 		System.out.println(name2.hashCode());
 		System.out.println(name3.hashCode());
 		
 		
-		
-
 	}
 }
