@@ -14,6 +14,7 @@ public class BreakOutterExample {
 			  // System.out.println();
 			  // i++;
 		   }
-
+		  
+		  String message = new String("hello");
 	}
 }
