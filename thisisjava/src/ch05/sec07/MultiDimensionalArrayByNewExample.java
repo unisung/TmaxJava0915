@@ -52,11 +52,5 @@ public class MultiDimensionalArrayByNewExample {
 			}
 			System.out.println();
 		}
-		
-		
-		
-		
-		
-		
 	}
 }
