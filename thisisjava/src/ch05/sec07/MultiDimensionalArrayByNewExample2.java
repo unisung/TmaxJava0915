@@ -28,18 +28,12 @@ public class MultiDimensionalArrayByNewExample2 {
 		for(int i=0;i<scores.length;i++) {
 			int sum=0;
 			System.out.print("|"+names[i]+"\t|");
-			System.out.print(scores[i][0]+"\t|");
-			sum+=scores[i][0];
-		    System.out.print(scores[i][1]+"\t|");
-		    sum+=scores[i][1];
-		    System.out.print(scores[i][2]+"\t|");
-		    sum+=scores[i][2];
+			for(int j=0;j<scores[i].length;j++) {
+				System.out.print(scores[i][j]+"\t|");
+				sum+=scores[i][j];
+			}
 		    System.out.println(sum);
 		}
 		System.out.println("-------------------------------------");
-		
-		
-
 	}
-
 }
