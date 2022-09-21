@@ -20,5 +20,9 @@ public class ReferenceExample1 {
 	 //
 	 System.out.println("str1이 참조하는 객체의 내용: "+str1.hashCode());
 	 System.out.println("str2가 참조하는 객체의 내용: "+str2.hashCode());
+	 
+	 String str3 = str2;
+	 System.out.println(str2==str3?"동일객체를 참조합니다":"다른객체를 참조합니다.");
+	 System.out.println("str3가 참조하는 객체의 주소: "+System.identityHashCode(str3));
 	}
 }
