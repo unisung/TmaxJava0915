@@ -1,6 +1,6 @@
 package ch05.sec07;
 
-public class MultiDimensionalArrayByNewExample2 {
+public class MultiDimensionalArrayByNewExampleVerify {
 	public static void main(String[] args) {
 		//[0][0][0]
 		//[0][0][0]
