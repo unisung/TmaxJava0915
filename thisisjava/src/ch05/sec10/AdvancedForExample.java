@@ -18,7 +18,5 @@ public class AdvancedForExample {
 		}
 		System.out.println("총합: "+sum+",평균: "+((double)sum/scores.length));
 		System.out.println("\n-------------------------");
-		
-		
 	}
 }
