@@ -8,9 +8,9 @@ public class Array0921Exam2 {
 		int[] total = new int[3];
 		int grandTotal=0;
 		
-		System.out.println("------------------성적표--------------");
-		System.out.print("|이름\t|국어\t|영어\t|수학\t|총점");
-		System.out.println("\n-------------------------------------");
+		System.out.println("------------------성적표-----------------------");
+		System.out.print("|이름\t|국어\t|영어\t|수학\t|총점\t|평균");
+		System.out.println("\n----------------------------------------------");
 
 		
 		for(int i=0;i<scores.length;i++) {
@@ -22,15 +22,15 @@ public class Array0921Exam2 {
 				total[j]+=scores[i][j];
 				grandTotal+=scores[i][j];
 			}
-		    System.out.println(sum);
+		    System.out.print(sum+"\t|");
+		    System.out.printf("%5.2f\n",((double)sum/scores[i].length));
 		}
-		System.out.println("-------------------------------------");
-		System.out.print("총 합\t|");
+		System.out.println("----------------------------------------------");
+		System.out.print("|총 합\t|");
 		for(int i=0;i<total.length;i++) {
 			System.out.print(total[i]+"\t|");
 		}
-		System.out.print(grandTotal);
-		System.out.println("\n-------------------------------------");
-
+		System.out.printf("%d \t|%5.2f\n",grandTotal,((double)grandTotal/(scores.length*scores[0].length)));
+		System.out.println("----------------------------------------------");
 	}
 }
