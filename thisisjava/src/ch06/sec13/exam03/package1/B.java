@@ -1,6 +1,9 @@
 package ch06.sec13.exam03.package1;
 
 public class B {
+ A a=new A();
+ //a.field1=0;
+ 
  void method() {
   A a=new A();
   a.field1=10;
