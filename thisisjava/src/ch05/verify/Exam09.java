@@ -1,4 +1,4 @@
-package ch06.verify;
+package ch05.verify;
 
 import java.util.Scanner;
 
