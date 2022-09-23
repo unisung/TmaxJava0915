@@ -1,4 +1,6 @@
-package ch06.sec01;
+package ch06.sec01_01;
+
+import ch06.sec01.Account;
 
 public class AccountMain {
 	

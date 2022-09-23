@@ -8,7 +8,7 @@ public class Account {
    private String sno;//계좌번호
   
    //생성자
-   public Account(String owner, int balance, String sno) {
+   public Account(String o, int balance, String sno) {
 	this.owner = owner;
 	this.balance = balance;
 	this.sno = sno;
