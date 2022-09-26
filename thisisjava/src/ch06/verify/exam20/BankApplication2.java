@@ -67,7 +67,7 @@ public class BankApplication2 {
       	  if(acc!=null)
       	    System.out.println(acc);
 	}
-
+ 
 	private static void createAccount() {
 		System.out.println("--------");
         System.out.println(" 계좌생성");
