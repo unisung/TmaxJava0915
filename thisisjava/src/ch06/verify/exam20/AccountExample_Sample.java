@@ -1,6 +1,6 @@
 package ch06.verify.exam20;
 
-public class AccountExample {
+public class AccountExample_Sample {
 	public static void main(String[] args) {
 		Account[] accounts = new Account[10];// [A][A][null][null][null][null][null][null][null][null]
 		accounts[0] = new Account("111-111", "홍길동", 10000);
@@ -16,21 +16,4 @@ public class AccountExample {
 			}
 		}
 	}
-}
-
-class Account {
-	private String ano;
-	private String owner;
-	private int balance;
-
-	public Account(String ano, String owner, int balance) {
-		this.ano = ano;
-		this.owner = owner;
-		this.balance = balance;
-	}
-
-	public int getBalance() { 		return balance;	}
-	public void setBalance(int balance) {		this.balance = balance;	}
-	public String getAno() {		return ano;	}
-	public String getOwner() {		return owner;	}
 }
