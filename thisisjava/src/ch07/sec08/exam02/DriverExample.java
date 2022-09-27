@@ -12,6 +12,5 @@ Taxi taxi = new Taxi();//Vehicle타입으로 변환(promotion)
 driver.drive(taxi);
 
 driver.drive(new Bus());//new Bus()객체가 Vehicle로 변환되어서 전달.
-
 	}
 }
