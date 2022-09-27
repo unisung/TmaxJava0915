@@ -7,10 +7,9 @@ public class Driver {
 	//Vehicle타입만 매개변수로 받음.
  public void drive(Vehicle vehicle) {
   vehicle.run();
-  if(vehicle instanceof Taxi){//원래 Taxi객체로 만들어져서 Vehicle로 변환되어서 넘어왔는지 true/false
-	 Taxi taxi = (Taxi)vehicle;
-   }else if( vehicle instanceof Bus){//원래 Bus객체로 만들어져서 Vehicle로 변환되어서 넘어왔는지 true/false
-	 Bus bus = (Bus)vehicle;
+  //java 12부터 vehicle instanceof Taxi taxi
+  if(vehicle instanceof Taxi taxi){//원래 Taxi객체로 만들어져서 Vehicle로 변환되어서 넘어왔는지 true/false
+   }else if( vehicle instanceof Bus bus){//원래 Bus객체로 만들어져서 Vehicle로 변환되어서 넘어왔는지 true/false
    }
  }
 }
