@@ -6,6 +6,6 @@ public class InstanceofExample {
 		  Driver driver = new Driver();
 		  for(Vehicle v:vs) {
 			  driver.run(v);
-		  }
+		  }		
 	}
 }
