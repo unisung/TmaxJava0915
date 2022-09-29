@@ -8,5 +8,7 @@ public abstract class Machine {
 /*class Computer extends Machine{
   public void work() {}
 }*/
-abstract class Computer extends Machine{	  
+abstract class Computer extends Machine{
+	  //Comuter(){}
+	  //public void work(){}
 }
