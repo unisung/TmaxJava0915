@@ -1,5 +1,6 @@
 package ch12.sec05;
 
+import java.io.FileInputStream;
 import java.util.Arrays;
 
 public class BytesToStringExample {
@@ -22,5 +23,6 @@ public class BytesToStringExample {
 		 System.out.println(Arrays.toString(arr1));
 		 newStr = new String(arr1);
 		 System.out.println(newStr);  
+
 	}
 }
