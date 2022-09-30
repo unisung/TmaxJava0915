@@ -13,5 +13,4 @@ public class GeResourceExample {
 	  System.out.println(photo2Path);
 
 	}
-
 }
