@@ -6,7 +6,7 @@ public class BeepPrintExample {
 	public static void main(String[] args) {
 		Toolkit toolkit = Toolkit.getDefaultToolkit();
 		for(int i=0;i<5;i++) {
-			toolkit.beep();
+			//toolkit.beep();
 			System.out.println("비프");
 			try {
 				Thread.sleep(500);
