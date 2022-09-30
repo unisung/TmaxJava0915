@@ -3,7 +3,13 @@ package ch14.sec03.exam03;
 public class BeepPrintExample {
 	public static void main(String[] args) {
 		//쓰레드생성
-		Thread thread = new Thread(new MyThread());
+		Thread thread = new Thread(()->{ for(int i=0;i<5;i++) {
+			                              System.out.println("비프");
+										try {
+											Thread.sleep(500);
+										}catch(Exception e) {}
+									 }
+									});
         //쓰레드 실행
 		thread.start();//run()메소드가 실행되도록 jvm에 요청
 		
