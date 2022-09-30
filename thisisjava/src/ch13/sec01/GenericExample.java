@@ -11,7 +11,6 @@ public static void main(String[] args) {
 	int intValue = (Integer)box1.content;//Object->Integer
 	System.out.println(intValue);
 	
-	
 	Box box2 = new Box();
 	box2.content = 100;
 	int value = (Integer)box2.content;//Object->Integer
@@ -24,11 +23,9 @@ public static void main(String[] args) {
 	String str3 = box3.content;//
 	System.out.println(str3);
 	
-	
 	Box<Integer> box4 = new Box<Integer>();
 	box4.content = 100;
 	int value4 = box4.content;//컴파일시 Integer
 	System.out.println(value4);
-	
 	}
 }
