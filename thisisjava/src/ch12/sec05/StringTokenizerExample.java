@@ -1,7 +1,7 @@
 package ch12.sec05;
-
+//Ctrl + Shift + o
 import java.util.StringTokenizer;
-
+//main Ctrl + space바
 public class StringTokenizerExample {
 	public static void main(String[] args) {
 		String data1 = "홍길동&이수홍,박연수";
