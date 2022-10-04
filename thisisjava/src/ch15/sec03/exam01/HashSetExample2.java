@@ -24,9 +24,9 @@ public class HashSetExample2 {
 	  }
 	  
 	  System.out.println(set.contains("myBatis")?"있음":"없음");
-	  for(String str:set)
+	  for(String str:set) {
 		  System.out.println(str);
-	  	  
+	  }	  
 	  
 	  
 	  
