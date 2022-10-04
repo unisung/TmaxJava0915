@@ -36,6 +36,5 @@ public class TreeSetExample {
 		for(Integer s:rangeSet)
 			System.out.print(s+" ");
 		System.out.println("\n--------------------");
-
 	}
 }
