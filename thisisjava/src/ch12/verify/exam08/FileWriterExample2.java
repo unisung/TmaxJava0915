@@ -8,8 +8,10 @@ public class FileWriterExample2 {
 		try(FileWriter fw = new FileWriter("c:/temp/file.txt");
 			Scanner scanner = new Scanner(System.in);) {
 			System.out.println("메세지를 입력하세요");
+			
 			String msg = scanner.nextLine();
 			fw.write(msg);
+			throw new Exception();
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
