@@ -1,15 +1,15 @@
 package ch15.sec04.exam01;
 
-import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
 //https://velog.io/@ljo_0920/java-%EB%B2%84%EC%A0%84%EB%B3%84-%EC%B0%A8%EC%9D%B4-%ED%8A%B9%EC%A7%95
-public class HashMapExample {
+public class HashTableExample {
 	public static void main(String[] args) {
-		Map<String, Integer> map = new HashMap<>();
+		Map<String, Integer> map = new Hashtable<>();
 		//저장 put(k,v)
 		map.put("신용권", 85);
 		map.put("홍길동", 90);
