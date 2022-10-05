@@ -10,5 +10,9 @@ public class AggregateExample {
 			            .filter(value->value%2==0)
 			            .count();
 	 System.out.println("2의 배수: "+count);
+	 
+	 int max=Arrays.stream(arr).filter(n->n%2==0).max().getAsInt();
+	 System.out.println(max);
+	 
 	}
 }
