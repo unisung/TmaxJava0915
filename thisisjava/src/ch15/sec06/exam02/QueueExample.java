@@ -27,8 +27,5 @@ public class QueueExample {
 				break;
 			}
 		}
-		
-
 	}
-
 }
