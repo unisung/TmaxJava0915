@@ -14,7 +14,7 @@ public class Person implements Comparable<Person>{
   
 @Override
 public int compareTo(Person o) {
-	return sno-o.sno;//0,음수,양수
+	return -(sno-o.sno);//0,음수,양수
 }
 
 
