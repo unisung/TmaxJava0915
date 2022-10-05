@@ -27,6 +27,4 @@ public class LambdaExample {
 	public static double sum(double x, double y) {
 		return x+y;
 	}
-	
-
 }
