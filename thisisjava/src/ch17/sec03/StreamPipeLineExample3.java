@@ -6,7 +6,7 @@ import java.util.function.ToIntFunction;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-public class StreamPipeLineExample2 {
+public class StreamPipeLineExample3 {
 	public static void main(String[] args) {
 		List<Student> list = Arrays.asList(
 				new Student("홍길동",10),
@@ -16,13 +16,14 @@ public class StreamPipeLineExample2 {
 		//향상된 for문
 		for(Student s:list) System.out.println(s);
 		
-		//1.
-		Stream<Student> studentStream = list.stream();
-		IntStream scoreStream = studentStream.mapToInt(student->student.getScore());
-		double avg=scoreStream.average().getAsDouble();
+		//2. dot(.) notation
+		double avg = list.stream()
+				         .mapToInt(student->student.getScore())
+				         .average()
+				         .getAsDouble();
+		
 		System.out.println("평균: "+avg);
-		
-		
+				
 		
 		
 		
