@@ -1,5 +1,6 @@
 package ch15.sec03.exam01;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
@@ -7,6 +8,8 @@ import java.util.Set;
 public class HashSetExample2 {
 	public static void main(String[] args) {
 	  Set<String> set = new HashSet<>();
+	  set = Collections.synchronizedSet(set);
+	  
 	  set.add("Java");//
 	  set.add("JDBC");
 	  set.add("Servleet/JSP");

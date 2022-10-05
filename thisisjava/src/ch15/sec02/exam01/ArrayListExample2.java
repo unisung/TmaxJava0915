@@ -1,11 +1,12 @@
 package ch15.sec02.exam01;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ArrayListExample2 {
 	public static void main(String[] args) {
-		List<Board> list = new ArrayList<>();
+		List<Board> list = Collections.synchronizedList(new ArrayList<>());
 		//객체 저장 add(객체)-append()
 		list.add(new Board("제목1", "내용1", "글쓴이1"));
 		list.add(new Board("제목2", "내용2", "글쓴이2"));
