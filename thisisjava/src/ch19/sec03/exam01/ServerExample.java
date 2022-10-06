@@ -32,7 +32,11 @@ public class ServerExample {
 					 InetSocketAddress isa 
 					    =(InetSocketAddress)socket.getRemoteSocketAddress();
 					 System.out.println("\n[서버]"+ isa.getHostName()+"의 연결 요청을 수락함");
-					 
+					 //
+					 ///작업
+					 //종료
+					 socket.close();
+					 System.out.println("[서버]" +isa.getHostName()+"의 연결을 끊음");
 				 }
 					  
 				} catch (Exception e) { System.out.println(e);
