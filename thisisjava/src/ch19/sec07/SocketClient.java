@@ -56,7 +56,6 @@ public class SocketClient{
                 chatServer.sendToAll(this,"나갔습니다.");
                 chatServer.removeSocketClient(this);
 			}
-
 		});
 	}//receive() 
 	
