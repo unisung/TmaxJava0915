@@ -32,7 +32,6 @@ public class BufferCopyExample {
 	bis.close();
 	bos.close();
 	}
-	
 public static long copy(InputStream is, OutputStream os) throws Exception{
 	 //시작시간
 	 long start = System.nanoTime();
