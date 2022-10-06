@@ -11,7 +11,7 @@ import java.io.Writer;
 
 public class CharacterConvertStreamExample {
 	public static void main(String[] args) throws Exception {
-	  write("문자 변환 스트림을 사용합니다.");
+	 // write("문자 변환 스트림을 사용합니다.");
 	  String data = read();
 	  System.out.println(data);
 	}
@@ -25,9 +25,9 @@ public class CharacterConvertStreamExample {
 	}
 	
 	public static String read() throws Exception{
-		InputStream is =new FileInputStream("c:/temp/test.txt");
+		InputStream is =new FileInputStream("c:/temp/test3.txt");
 		Reader reader = new InputStreamReader(is,"UTF-8");
-		char[] arr = new char[100];
+		char[] arr = new char[100];//[][][]....[]
 		int num=reader.read(arr);
 		reader.close();
 		String str = new String(arr, 0, num);

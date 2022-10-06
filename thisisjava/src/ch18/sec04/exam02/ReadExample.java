@@ -30,7 +30,5 @@ public class ReadExample {
 		}catch (Exception e) {
 			System.out.println(e);
 		}
-
 	}
-
 }
