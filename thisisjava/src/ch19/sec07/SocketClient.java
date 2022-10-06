@@ -5,6 +5,8 @@ import java.io.DataOutputStream;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 
+import org.json.JSONObject;
+
 public class SocketClient {
 	//필드
 	ChatServer chatServer;
@@ -27,7 +29,53 @@ public class SocketClient {
 			// TODO: handle exception
 		}
 	}
-	
-	
 
+	//JSON으로 받기
+	public void receive() {
+		chatServer.threadPool.execute(new Runnable() {
+			@Override
+			public void run() {
+			  try {
+				   while(true) {
+				   String receiveJson = dis.readUTF();
+				   JSONObject jsonObject 
+					              = new JSONObject(receiveJson);
+				   String command = jsonObject.getString("command");
+				   
+				   switch(command) {
+				   case "incomming":
+					   this.chatName = jsonObject.getString("data");
+					   chatServer.sendToAll(this, "들어오셨습니다.");
+					   chatServer.addSocketCleint(this);
+					   break;
+				   case "message":
+					   String message = jsonObject.getString("data");
+					   chatServer.sendToAll(this,message);
+					   break;
+				   }
+				   }
+			  }catch (Exception e) {
+                chatServer.sendToAll(this,"나갔습니다.");
+                chatServer.removeSocketClient(this);
+			}
+				
+			}
+		});
+	}//receive() 
+	
+	public void send(String json) {
+		try {
+			dos.writeUTF(json);
+			dos.flush();
+		}catch(Exception e) {	
+		}
+	}//send()
+	
+	public void close() {
+		try {
+			 socket.close();
+		}catch(Exception e) {
+			
+		}
+	}
 }
