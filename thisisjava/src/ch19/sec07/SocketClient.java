@@ -7,7 +7,7 @@ import java.net.Socket;
 
 import org.json.JSONObject;
 
-public class SocketClient {
+public class SocketClient{
 	//필드
 	ChatServer chatServer;
 	Socket socket;
@@ -32,9 +32,7 @@ public class SocketClient {
 
 	//JSON으로 받기
 	public void receive() {
-		chatServer.threadPool.execute(new Runnable() {
-			@Override
-			public void run() {
+		chatServer.threadPool.execute(()-> {
 			  try {
 				   while(true) {
 				   String receiveJson = dis.readUTF();
@@ -46,7 +44,7 @@ public class SocketClient {
 				   case "incomming":
 					   this.chatName = jsonObject.getString("data");
 					   chatServer.sendToAll(this, "들어오셨습니다.");
-					   chatServer.addSocketCleint(this);
+					   chatServer.addSocketClient(this);
 					   break;
 				   case "message":
 					   String message = jsonObject.getString("data");
@@ -58,8 +56,7 @@ public class SocketClient {
                 chatServer.sendToAll(this,"나갔습니다.");
                 chatServer.removeSocketClient(this);
 			}
-				
-			}
+
 		});
 	}//receive() 
 	
