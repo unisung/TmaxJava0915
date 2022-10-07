@@ -17,7 +17,7 @@ public class ChatClient {
  
  //서버연결
 public void connect() throws IOException{
- socket = new Socket("localhost",50001);//채팅서버의 주소와 포트번호
+ socket = new Socket("192.168.200.125",50001);//채팅서버의 주소와 포트번호
  dis = new DataInputStream(socket.getInputStream());//스트림객체 얻기
  dos = new DataOutputStream(socket.getOutputStream());//스트림객체 얻기
  System.out.println("[클라이언트] 서버에 연결됨");	 
