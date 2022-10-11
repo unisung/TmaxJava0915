@@ -81,5 +81,46 @@ end func_aftertax;
 /* 함수 실행 */
 select func_aftertax(10000) from dual;
 
+create table a(col1 varchar2(10));
+create table b(col1 varchar2(10));
+insert into a values('hello');
+insert into b values('hello');
+select * from a;
+select * from b;
+/* a테이블에 값이 insert되면 b에도 자동 insert되게 trigger작성*/
+/* :old.col1<- null,  :new.col1 <- 'hello'
+ * 삭제일 경우
+ * :old.col1 <-'hello', :new.col1 <-null
+ * 수정일 경우 'hello' -> 'hi'
+ * :old.col1 <-'hello' , :new.col1 <-'hi'
+ */
+create or replace trigger trg_insrt_a
+after/* 트리거 발생 시점: 입력 직후*/
+insert on a/* insert <-이벤트(입력), a<-테이블명*/
+for each row /* 행 단위 트리거 호출 */
+begin
+	insert into b(col1) values (:new.col1);
+end;
+
+
+/* 트리거 상태확인*/
+select * from user_triggers;
+
+insert into a(col1) values ('hello kim');
+insert into a(col1) values ('hi kim');
+insert into a(col1) values ('bye kim');
+insert into a(col1) values ('kkk');
+select * from a;
+select * from b;
+
+alter trigger trg_insrt_a disable;
+alter trigger trg_insrt_a enable;
+
+
+
+
+
+
+
 
 
