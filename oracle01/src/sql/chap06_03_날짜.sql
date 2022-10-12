@@ -43,6 +43,27 @@ select sysdate, next_day(sysdate, '월요일'), last_day(sysdate),
        next_day(sysdate, '금요일')
  from dual; 
  
+/* 날짜 반올림 함수 round(), trunc() */
+select sysdate,
+       round(sysdate,'CC') as foramt_cc,
+       round(sysdate,'yyyy') as format_yyyy,
+       round(sysdate,'Q') as format_q,/* 분기 반올림 */
+       round(sysdate,'ddd') as format_ddd,/* 정오 반올림 */
+       round(sysdate,'hh') as format_hh/*시간 반올림 */
+  from dual;
+  
+select sysdate,
+       trunc(sysdate,'CC') as foramt_cc,
+       trunc(sysdate,'yyyy') as format_yyyy,
+       trunc(sysdate,'Q') as format_q,/* 분기 버림 */
+       trunc(sysdate,'ddd') as format_ddd,/* 정오 버림 */
+       trunc(sysdate,'hh') as format_hh/*시간 버림 */
+  from dual;  
+  
+  
+  
+  
+ 
  
  
  
