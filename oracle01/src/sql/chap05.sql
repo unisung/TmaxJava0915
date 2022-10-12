@@ -63,8 +63,7 @@ select nvl(null,0), nvl(1,0),
 /* nvl()함수를 이용하여 다시 계산 */  
 select empno,job, sal, comm, nvl(comm,0), sal*12+nvl(comm,0) 
   from emp 
- order by job, sal*12+nvl(comm,0) desc;    
-  
+ order by job, sal*12+nvl(comm,0) desc;      
   
 
  
