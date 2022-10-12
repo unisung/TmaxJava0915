@@ -134,8 +134,24 @@ select empno, ename,
        ELSE SAL*1.03
        END AS UPSAL
 FROM EMP;    
- 
 
+select empno, ename, comm, 
+       case
+        when comm is null then '해당사항 없음'
+        when comm = 0 then '수당없음'
+        when comm > 0 then '수당:'||comm
+        end  as comm_text
+   from emp;
+   
+   
+/* 급여(sal)이 1000미만이면 'a'등급, 1000이상 2000미만이면 'b',
+ * 2000이상 3000미만 'c' 3000이상이면 's' 으로 출력 */   
+select empno,
+       ename,
+       sal,
+       case
+       
+ from emp;
 
 
 
