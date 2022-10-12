@@ -149,12 +149,25 @@ select empno, ename, comm,
 select empno,
        ename,
        sal,
-       case
-       
+       case 
+       when sal < 1000 then 'a'
+       when sal >= 1000 and sal<2000 then 'b'
+       when sal >= 2000 and sal<3000 then 'c'
+       else 's'
+       end as "등급"
  from emp;
 
 
-
+select empno,
+       ename,
+       sal,
+       case trunc(sal/1000)
+       when 0 then 'a'
+       when 1 then 'b'
+       when 2 then 'c'
+       else 's'
+       end as "등급"
+ from emp;
 
  
  
