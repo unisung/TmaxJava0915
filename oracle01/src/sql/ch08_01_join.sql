@@ -86,9 +86,25 @@ select e1.empno enpno, e1.ename ename,
        e2.empno mgrno, e2.ename mgrname
   from emp e1, emp e2
  where e1.mgr = e2.empno
-order by e1.empno;
-  
+order by e2.ename, e1.ename;
 
+select lpad(' ',3*(level - 1))||ename,
+        level, connect_by_isleaf,
+        connect_by_iscycle,
+        sys_connect_by_path(ename,'/'),
+        connect_by_root(ename),
+        connect_by_root ename
+   from emp
+  start WITH  mgr is null
+  connect by nocycle prior empno = mgr
+  ;
+
+/* 출처: https://tiboy.tistory.com/563 */
+select level, lpad(' ',10*(level - 1))||ename
+   from emp
+  start WITH  mgr is null
+  connect by prior empno = mgr
+  ;
    
  
  
