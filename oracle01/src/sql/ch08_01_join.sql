@@ -105,7 +105,27 @@ select level, lpad(' ',10*(level - 1))||ename
   start WITH  mgr is null
   connect by prior empno = mgr
   ;
-   
+
+/* SQL-99 표준 */
+/* natural join - 두 테이블이 동일 칼럼 자동 join */
+select empno, ename, job, mgr, sal, deptno, dname,loc
+  from emp e natural join dept d
+ order by deptno, empno
+ ;
+ /* join ~ using - usging(조인할 칼럼) */
+select empno, ename, job, mgr, deptno, dname
+  from emp join dept using(deptno)
+ where sal >=3000
+order by deptno, empno;
+
+/*  join ~ on - on(조인조건) */
+select empno, ename, emp.deptno, dname
+  from emp join dept on (emp.deptno = dept.deptno)
+  ;
+  
+
+  
+  
  
  
  
