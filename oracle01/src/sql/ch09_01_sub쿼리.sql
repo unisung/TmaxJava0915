@@ -100,6 +100,110 @@ select *
  where (deptno,sal )in (select deptno, max(sal) 
                           from emp 
                           group by deptno);
+                          
+                          
+select *
+  from emp
+ where (empno, ename) in (select empno, ename 
+                          from emp 
+                         where sal=1250
+                         );
+                    
+/* from 절에 sub쿼리 사용하기 */                         
+select * from emp where deptno=10;    
+select * from dept;
+
+select *
+  from (select * from emp where deptno=10) a,
+       (select * from dept) b
+ where a.deptno = b.deptno
+ ;
+ 
+select ename, sal, dname
+  from 
+(select empno, ename, sal, deptno 
+  from emp where deptno=10) a,
+(select deptno, dname from dept) b  
+where a.deptno = b.deptno
+;
+
+/* from절의 sub쿼리 */
+select rownum, empno, ename, sal
+  from emp
+  ;
+  
+select rownum, empno, ename, sal
+  from emp
+ where rownum <= 5;
+  ;
+  
+select rownum, empno, ename, sal
+  from emp
+ where rownum >= 5;
+  ;
+
+select *
+  from (select rownum as rn, empno, ename, sal
+          from emp
+        ) a
+  where rn >= 5
+ ;
+  
+select *
+  from (select rownum as rn, empno, ename, sal
+          from emp
+        ) a
+  /*where rn >= 5 and rn <=10 */
+  where rn between 5 and 10
+ ;  
+/* rownum가상(pseudo)칼럼 에 별칭을 붙여서 다른칼럼으로 사용 */ 
+select *
+  from (select rownum as rn, empno, ename, sal
+          from emp
+         where rownum <=10
+        ) a
+  where rn >=5
+ ;
+ 
+/* with절은 select전에 선언  */
+with
+e10 as (select * from emp where deptno=10),
+d as (select * from dept)
+select e10.empno, e10.ename,e10.deptno, d.dname,d.loc
+ from e10,d
+where e10.deptno = d.deptno
+;
+
+/* 칼럼에 사용되는 sub쿼리 */
+select empno, ename, job, sal,
+(select grade 
+   from salgrade 
+  where e.sal between losal and hisal) as salgrade,
+(select dname 
+   from dept 
+  where e.deptno=dept.deptno) as dname
+from emp e;
+
+
+
+
+ 
+
+
+ 
+  
+  
+  
+
+
+
+
+
+                   
+                         
+                         
+                          
+                          
  
  
  
