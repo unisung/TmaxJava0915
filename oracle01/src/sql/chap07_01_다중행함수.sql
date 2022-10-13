@@ -90,7 +90,7 @@ select deptno, job, sum(sal)
 having sum(sal) >=2500 /* 집계 이휴 데이타 추출 조건 having */
  order by deptno, job
  
- 
+/* 과제 p.174 ~ p.175 잊기전에 한번더(ch06) */ 
  
  
   
