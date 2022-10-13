@@ -70,7 +70,40 @@ select *
 select *
   from emp
  where sal < all (select sal from emp where deptno = 30);               
-               
+   
+/* 30번 부서의 최대급여보다(2850) 많이받는 사원만 출력 ,all */
+select *
+  from emp
+ where sal > all (select sal from emp where deptno = 30);
+ 
+select *
+  from emp
+ where sal > (select max(sal) from emp where deptno = 30);
+ 
+/* exists 조건에 맞는 결과가 존재하면 true */
+select *
+  from emp
+ where exists (select dname from dept where deptno=10);
+ 
+ select *
+  from emp
+ where exists (select sysdate from dual);
+ 
+select *
+  from emp
+ where not exists (select dname from dept where deptno=10);
+
+ /* where 조건에 칼럼 두개 이상 sub쿼리와 비교
+  * where (칼럼1,칼럼2,..) in (select 칼럼1, 칼럼2,..) */
+select *
+  from emp
+ where (deptno,sal )in (select deptno, max(sal) 
+                          from emp 
+                          group by deptno);
+ 
+ 
+ 
+ 
                
 
 
