@@ -118,20 +118,63 @@ select deptno, job, count(*)
  order by deptno, job
  ;
  
+/* grouping(칼럼) 그룹이되어있으면 0, 그룹이 안되어있으면 1 */ 
+select deptno, job, count(*), max(sal), sum(sal), min(sal),
+       grouping(deptno),
+       grouping(job)
+  from emp
+ group by cube(deptno, job)
+ order by deptno, job
+ ;
+ 
+/* grouping_id(여러개 칼럼a,b)-
+ *  (a,b)00 - 0, a001 -1, b10 - 2, 11(null,null) -3 */
+select deptno, job, count(*), sum(sal),
+       grouping(deptno),
+       grouping(job),
+       grouping_id(deptno, job)
+  from emp
+ group by cube(deptno, job)
+ order by deptno, job
+ ; 
+ 
+/* LISTAGG - 가로 출력 */
+select deptno,
+       listagg(ename,',')
+       within group(order by sal desc) as enames
+  from emp
+ group by deptno;
+ 
+/* pivot - 가로 출력 */ 
+select *
+  from(select deptno, job, sal from emp)
+pivot(max(sal) for deptno in (10,20,30) )
+order by job;
+ 
+ 
+/* unpivot - 세로 출력 */
+select deptno,
+       max(decode(job, 'CLERK',sal)) "CLERK",
+       max(decode(job, 'SALESMAN',sal)) "SAMESMAN",
+       max(decode(job, 'PRESIDENT',sal)) "PRESIDENT",
+       max(decode(job, 'MANAGER',sal)) "MANAGER",
+       max(decode(job, 'ANALYST',sal)) "ANALYST"
+  from emp
+ group by deptno
+ order by deptno
+ ;
 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-  
+select *
+  from (select deptno,
+       max(decode(job, 'CLERK',sal)) "CLERK",
+       max(decode(job, 'SALESMAN',sal)) "SALESMAN",
+       max(decode(job, 'PRESIDENT',sal)) "PRESIDENT",
+       max(decode(job, 'MANAGER',sal)) "MANAGER",
+       max(decode(job, 'ANALYST',sal)) "ANALYST"
+  from emp
+ group by deptno
+ order by deptno)
+unpivot(sal for job in (CLERK,SALESMAN,PRESIDENT,MANAGER,ANALYST))
+order by deptno, job
+;
+
