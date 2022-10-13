@@ -76,8 +76,6 @@ select empno, ename, mgr,
        else to_char(mgr)
        end as chg_mgr
  from emp;  
-  
-       
        
        
        
