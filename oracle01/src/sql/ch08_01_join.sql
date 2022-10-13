@@ -122,9 +122,28 @@ order by deptno, empno;
 select empno, ename, emp.deptno, dname
   from emp join dept on (emp.deptno = dept.deptno)
   ;
+/* left outer join */  
+select e1.empno, e1.ename, e1.mgr,
+       e2.empno, e2.ename
+  from emp e1 left outer join emp e2 on (e1.mgr = e2.empno)
+ order by e1.empno;
   
+/* right outer join */
+select e1.empno, e1.ename, e1.mgr,
+       e2.empno, e2.ename
+  from emp e1 right outer join emp e2 on (e1.mgr = e2.empno)
+ order by e1.empno;  
+  
+/* full outer join */  
+select e1.empno, e1.ename, e1.mgr,
+       e2.empno, e2.ename
+  from emp e1 full outer join emp e2 on (e1.mgr = e2.empno)
+ order by e1.empno; 
+ 
+ 
 
-  
+
+ 
   
  
  
