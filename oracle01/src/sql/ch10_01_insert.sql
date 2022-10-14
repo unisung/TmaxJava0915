@@ -78,9 +78,46 @@ values(2111,'이순신','MANAGER',9999, to_date('07/01/2001','dd/mm/yyyy'),4000,
 select sysdate from dual;
 insert into emp_temp
 values(3111,'심청이','MANAGER',9999,sysdate,4000,NULL,30);
+/*1.*/
+create table emp_temp2
+as
+select * from emp where 1=0;
+/*2.*/
+alter table emp_temp2 add grad number(1);
 
+select * from emp_temp2;
+/* 기존테이블의 쿼리결과를 테이블에 삽입
+ * insert into 테이블명
+ * select문 ;*/
+insert into emp_temp2
+select empno, ename, job, mgr,hiredate, sal,
+       comm, deptno, grade
+  from emp, salgrade
+ where emp.sal between losal and hisal
+;
+/* 쿼리문으로 테이블 생성 
+ * create table 테이블명
+ * as
+ * select 문;
+ * */
+create table emp_dept_grade
+as
+select empno,ename,emp.deptno,dname,sal,grade
+  from emp,dept,salgrade
+ where emp.deptno = dept.deptno
+   and sal between losal and hisal
+   and 1=0;
+/*생성된 테이블 조회 */  
+select * from emp_dept_grade;   
 
-
+/* 기존데이타를 select하여 테이블에 입력 */
+insert into emp_dept_grade
+select empno,ename,emp.deptno,dname,sal,grade
+  from emp,dept,salgrade
+ where emp.deptno = dept.deptno
+   and sal between losal and hisal
+   and emp.deptno = 10
+   ;
 
 
 
