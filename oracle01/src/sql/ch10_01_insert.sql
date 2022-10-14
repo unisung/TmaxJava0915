@@ -57,6 +57,7 @@ insert into dept_temp2 values (70,'WEB', NULL);
 /* 암시적 null값 입력 */
 insert into dept_temp2(deptno,dname) 
    values (80,'MOBILE');
+  
 
 
 
