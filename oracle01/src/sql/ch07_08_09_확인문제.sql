@@ -107,8 +107,51 @@ select d.deptno, dname, e.empno, e.ename, e.mgr,e.sal,
  order by d.deptno, e.empno
  ;
 
+ /* 9-1. 전체 사원 중 ALLEN과 같은 직책(JOB) 인 사원 */
+select job from emp where ename='ALLEN'; 
+select job, ename, sal, emp.deptno, dname 
+  from emp, dept 
+ where emp.deptno = dept.deptno
+   and job =(select job from emp where ename='ALLEN');
+   
+/*9-2*/
+select avg(sal) from emp;
+select emp.deptno,dname, hiredate, loc, sal,grade 
+  from emp, dept, salgrade 
+ where emp.deptno = dept.deptno
+   and emp.sal between losal and hisal
+   and sal > (select avg(sal) from emp)
+ order by sal desc, empno asc;
  
+/*9-3*/
+select distinct job from emp where deptno=30; 
+select empno, ename, job, emp.deptno, dname, loc 
+  from emp, dept
+ where job not in (select distinct job 
+                     from emp 
+                    where deptno=30)
+   and emp.deptno=10
+   ;
+   
+/*9-4*/
+select max(sal) from emp where job = 'SALESMAN';  
+select sal from emp where job = 'SALESMAN';
+/* 다중행 서브쿼리 */
+select empno, ename, sal, grade
+  from emp, salgrade
+ where sal between losal and hisal
+   and sal > all (select sal 
+                    from emp 
+                   where job = 'SALESMAN');
  
+/* 다중행 서브쿼리 미사용 */
+select empno, ename, sal, grade
+  from emp, salgrade
+ where sal between losal and hisal
+   and sal >  (select max(sal) 
+                 from emp 
+                where job = 'SALESMAN');
+
  
  
  
