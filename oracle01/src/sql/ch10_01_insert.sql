@@ -58,6 +58,29 @@ insert into dept_temp2 values (70,'WEB', NULL);
 insert into dept_temp2(deptno,dname) 
    values (80,'MOBILE');
   
+/* 날짜 데이타 입력 */
+create table emp_temp 
+as select * from emp
+where 1=0;
+
+select * from emp_temp;
+/* 직접 문자열로 입력 */
+insert into emp_temp(empno,ename,job,mgr,hiredate,sal,comm,deptno)
+values(1111,'성춘향','MANAGER',9999, '2001-01-05',4000,NULL,20);
+
+insert into emp_temp
+values(9999,'홍길동','PRESIDENT',NULL, '2001/01/01',5000,1000,10);
+/* 포맷을 맞춰서 입력 */
+insert into emp_temp
+values(2111,'이순신','MANAGER',9999, to_date('07/01/2001','dd/mm/yyyy'),4000,NULL,20);
+
+/* sysdate 을 이용한 입력 */
+select sysdate from dual;
+insert into emp_temp
+values(3111,'심청이','MANAGER',9999,sysdate,4000,NULL,30);
+
+
+
 
 
 
