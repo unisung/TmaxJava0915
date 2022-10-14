@@ -160,11 +160,12 @@ increment by 3
 maxvalue 99
 cycle;
 
+select * from dba_synonyms;
 /* 시퀀스 삭제 drop sequence 시퀀스명 */
 drop sequence seq_dept_sequence
 
 /* 동의어 synonym */
-create public synonym e for emp;
+create synonym e for emp;
 select * from e;
 
 /* 동의어 삭제 drop synonym 시노님명*/
