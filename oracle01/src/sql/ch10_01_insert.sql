@@ -118,9 +118,101 @@ select empno,ename,emp.deptno,dname,sal,grade
    and sal between losal and hisal
    and emp.deptno = 10
    ;
+   
+/* update테이블 */   
+create table dept_temp2
+as
+select * from dept;
+
+select * from dept_temp2;
+/* UPDATE 테이블명 SET 칼럼=새로운값 */
+update dept_temp2
+   set loc = 'NEW YORK'
+;
+
+select dept_temp2.deptno, dept.loc
+  from dept, dept_temp2
+ where dept.deptno(+)=dept_temp2.deptno
+;
+
+update dept_temp2
+   set loc ='NEW YORK'
+ where deptno =10;
+ 
+update dept_temp2
+   set loc ='DALLAS'
+ where deptno =20;
+
+update dept_temp2
+   set loc ='CHICAGO'
+ where deptno =30;
+ 
+update dept_temp2
+   set loc ='BOSTON'
+ where deptno =40; 
+ 
+update dept_temp2
+   set loc =NULL
+ where deptno IN (70,80); 
+ 
+select * from dept_temp2; 
+
+insert into dept_temp2 values(70,'WEB',NULL);
+insert into dept_temp2 values(80,'MOBILE',NULL);
+
+delete from dept_temp2 
+where deptno=70
+  and rownum =1
+  ;
+delete from dept_temp2 
+where deptno=80
+  and rownum =1
+  ;
+/* 칼럼1개 수정*/  
+update dept_temp2
+   set loc ='SEOUL'
+ where deptno=70
+ ;
+select * from dept_temp2;
+
+/* 칼럼 2개 수정
+ * update 테이블명
+ * set 칼럼1=값, 칼럼2=값2,...
+ * where 조건 */
+update dept_temp2
+   set dname ='INTERNET',
+       loc ='PANGYO'
+ where deptno = 80;
+ 
+update dept_temp2 
+  set  dname ='research',
+       loc='suwon' 
+  where deptno=40; 
+/* 서브쿼리로 데이타 수정, 칼럼두개 동시 수정 */
+update dept_temp2
+   set (dname,loc)=(select dname,loc 
+                      from dept 
+                     where deptno=40) 
+ where deptno = 40;
+select * from dept_temp2; 
+
+/*개별 칼럼 하나씩 수정 */
+update dept_temp2
+   set dname=(select dname 
+                      from dept 
+                     where deptno=40),
+       loc=(select loc 
+                      from dept 
+                     where deptno=40)              
+ where deptno = 40;
+ 
+ 
 
 
 
 
+
+ 
+ 
 
 
