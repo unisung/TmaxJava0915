@@ -32,6 +32,18 @@ create unique index ind_dept on dept(dname);
 insert into dept values (50,'SALES','JEJU');
 /*ORA-00001: unique constraint (SCOTT.IND_DEPT) violated*/
 
+/* 테이블 생성 시 
+ * primary key를 지정하면
+ * unique index 가 생성 됨*/
+create table emp_imsi(
+empno number(4) primary key,/* 중복불가(unique),not null */
+ename varchar2(10),
+job varchar2(10),
+deptno number(2)
+);
+
+select * from user_indexes;
+
 
 
 
