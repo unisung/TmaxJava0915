@@ -315,14 +315,36 @@ delete from emp_fk where deptno=10;
 delete from dept_fk where deptno=10;
 
 /* 제약조건 생성시 on delete 옵션추가 */
+select * from user_constraints 
+ where table_name=upper('emp_fk');
+
+ /* emp_fk테이블의 foreign key 제약 조건 삭제 */
+alter table emp_fk 
+drop constraint empfk_deptno_fk;
+
+/* 참조되는 부모테이블의 칼럼값 삭제시 참조하는 모든 자식 테이블의
+ * 해당칼럼값이 삭제 */
+/* alter table 테이블명
+ * add constraint 제약조건면
+ * foreign key(칼럼)
+ * references 부모테이블(부모칼럼)
+ * on delete cascade;--참조하는 자식테이블의 행삭제
+ * */
+alter table emp_fk
+add constraint empfk_deptno_fk 
+foreign key(deptno)
+references dept_fk(deptno)
+on delete cascade;
+
+select * from dept_fk; 
+select * from emp_fk; 
+
+/* on delete cascade 적용 후 부모테이블의 칼럼값 삭제 */
+delete from dept_fk where deptno=20;
+
+select * from emp_fk; 
 
 
-
-
-
-
-
-       
        
        
        
