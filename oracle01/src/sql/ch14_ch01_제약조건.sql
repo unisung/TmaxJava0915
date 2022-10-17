@@ -83,13 +83,28 @@ update table_notnull
 select * from table_notnull;
 
 
+/* not null칼럼 제약조건 명 */
+select * from table_null;
+update table_null
+   set login_id = 'kim'
+ where login_id is null
+   and rownum =1
+   ;
+   
+update table_null
+   set login_id = 'kang'
+ where login_id is null
+   and rownum =1
+   ;
 
+commit
 
+alter table table_null 
+modify ( login_id constraint tblN_loginid_notnull not null);
 
-
-
-
-
+/* 제약조건 조회 user_constraints */ 
+select * from user_constraints 
+where constraint_name not like 'BIN%';
 
 
 
