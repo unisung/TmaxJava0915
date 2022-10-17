@@ -187,5 +187,73 @@ SQL> /
 PL/SQL procedure successfully completed.
 
 /*-----------------------------------------------------*/
+declare
+v_number number :=13;
+begin
+ if mod(v_number,2) =0 then
+    dbms_output.put_line(v_number||'는 짝수입니다.');
+ else
+    dbms_output.put_line(v_number||'는 홀수입니다.');
+ end if;
+end;
+/
+/*-------------------------------------------------------*/
+declare
+v_score number := 87;
+begin
+ if v_score >=90  then
+    dbms_output.put_line('A학점');
+ elsif v_score >=80 then
+    dbms_output.put_line('B학점');
+ elsif v_score >=70 then
+    dbms_output.put_line('C학점');
+ else 
+    dbms_output.put_line('F학점');
+ end if;
+end;
+/
+/*---------------------------------------------------*/
+declare
+v_score number := 87;
+begin
+  --dbms_output.put_line(trunc(v_score/10));
+  case trunc(v_score/10)
+     when 10 then dbms_output.put_line('A학점');
+     when 9 then dbms_output.put_line('A학점');
+     when 8 then dbms_output.put_line('B점');
+     when 7 then dbms_output.put_line('C학점');
+     else dbms_output.put_line('F학점');
+  end case;
+end;
+/
+
+/*-----------------------------------------------------*/
+declare
+v_score number := 87;
+begin
+  --dbms_output.put_line(trunc(v_score/10));
+  case 
+     when trunc(v_score/10)=10 then dbms_output.put_line('A학점');
+     when trunc(v_score/10)=9 then dbms_output.put_line('A학점');
+     when trunc(v_score/10)=8 then dbms_output.put_line('B점');
+     when trunc(v_score/10)=7 then dbms_output.put_line('C학점');
+     else dbms_output.put_line('F학점');
+  end case;
+end;
+/
+/*------------------------------------------------*/
+declare
+v_score number := 87;
+begin
+  --dbms_output.put_line(trunc(v_score/10));
+  case 
+     when v_score>=90 then dbms_output.put_line('A학점');
+     when v_score>=80 then dbms_output.put_line('B점');
+     when v_score>=70 then dbms_output.put_line('C학점');
+     else dbms_output.put_line('F학점');
+  end case;
+end;
+/
+/*-------------------------------------------------*/
 
 
