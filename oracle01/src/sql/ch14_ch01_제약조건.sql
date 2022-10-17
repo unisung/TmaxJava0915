@@ -291,9 +291,37 @@ update emp_fk
  
 select * from emp_fk;       
 
+select * from user_constraints;
+
+/* foreign key제약조건이 적용된 부모테이블 삭제 */
+/*ORA-02292: integrity constraint (SCOTT.EMPFK_DEPTNO_FK) violated - child record found */
+delete from dept_fk where deptno=10;
+
+/* alter table 테이블명 disable constraint 제약조건명*/
+alter table emp_fk 
+disable constraint empfk_deptno_fk;
+
+/* 제약조건이 비활성화 된 상태에서 부모테이블 삭제 */
+delete from dept_fk where deptno=10;
+
+alter table emp_fk 
+enable constraint empfk_deptno_fk;
+
+select * from dept_fk; 
+select * from emp_fk; 
+
+/*참조하는 자식테이블 데이터 부터 먼저 삭제 */
+delete from emp_fk where deptno=10;
+delete from dept_fk where deptno=10;
+
+/* 제약조건 생성시 on delete 옵션추가 */
 
 
-       
+
+
+
+
+
        
        
        
