@@ -369,6 +369,45 @@ delete from dept_fk where deptno=20;
 select * from dept_fk;
 select * from emp_fk;
 
+/* check 제약조건 */
+create table table_check(
+id varchar2(20) constraint tbl_id_pk primary key,
+pwd varchar2(20) constraint tbl_pwd_ck check (length(pwd) >3),
+tel varchar2(20)
+
+);
+
+insert into table_check
+values ('hong','1234','010-111-1234');
+select * from table_check;
+
+/*ORA-02290: check constraint (SCOTT.TBL_PWD_CK) violated */
+insert into table_check
+values ('kim','123','010-111-1234');
+
+select * from user_constraints;
+
+/* 기본값 지정하는 default */
+create table table_default(
+id varchar2(20) constraint tblck2_id_pk primary key,
+pwd varchar2(20) default '1234',
+tel varchar2(20),
+regdate date default sysdate
+);
+select * from table_default;
+select * from user_constraints 
+  where table_name=upper('table_default');
+  
+insert into table_default(id,tel)
+values('hong','010-111-1234');
+select * from table_default;
+
+insert into table_default(id,pwd,tel,regdate)
+values('kang','3333','010-111-5678',to_date('2022-10-17','yyyy-mm-dd'));
+select * from table_default;
+
+
+
 
       
        
