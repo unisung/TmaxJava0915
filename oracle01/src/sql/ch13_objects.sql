@@ -217,6 +217,25 @@ nocycle
 nocache
 ;
 
+/* or replace옵션 은 같은 이름으로 내용변경시 사용
+ * -view, procedure, function, trigger */
+create or replace view myView2
+as
+select empno,ename,job,sal,hiredate
+ from emp
+ ;
+
+select * from myView;
+
+rename myView to myView2;
+
+
+
+
+
+
+
+
 
 
 
