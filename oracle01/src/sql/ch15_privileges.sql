@@ -68,11 +68,12 @@ SQL> grant rolestudy to hr;
 
 Grant succeeded.
 
-SQL>
+/* role 회수 */
+SQL>revoke rolestudy from hr;
 
-
-
-
+/* role과 권한 확인*/
+select * from user_sys_privs;
+select * from user_role_privs;
 
 
 
