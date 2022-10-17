@@ -240,11 +240,70 @@ tel varchar2(20),
 primary key (id,sno)/* primary key(칼럼1,칼럼2,..)*/
 );
 
+/* FOREIGN KEY 제약조건 
+ * 부모테이블의 주키가 자식테이블의 속성으로 참조되는 키 */
+/* 부모테이블(참조되는 테이블) */
+drop table dept_fk;
+create table dept_fk(
+deptno number(2) constraint deptfk_deptno_pk primary key,
+dname varchar2(14),
+loc varchar2(13)
+);
+
+/* 자식테이블(참조하는 테이블) */
+create table emp_fk(
+empno number(4) constraint emp_fk_empno_pk primary key,
+ename varchar2(10),
+job varchar2(9),
+mgr number(4),
+hiredate date,
+sal number(7,2),
+comm number(7,2),
+/* constraint 제약명 references 테이블(칼럼) */
+deptno number(2) constraint empfk_deptno_fk 
+                 references dept_fk(deptno)
+
+);
+
+/* 부모테이블에 데이타 입력 */
+insert into dept_fk values(10,'Accounting','서울시');
+select * from dept_fk;
+/* 
+
+ORA-02291: integrity constraint (SCOTT.EMPFK_DEPTNO_FK) violated - parent key not found*/
+insert into emp_fk
+values(9999,'홍길동','MANAGER',null, 
+       to_date('2001/01/01','yyyy/mm/dd'),3000,null,10);
+/* null */
+insert into emp_fk
+values(9998,'일지매','ANALYST',null, 
+       to_date('2001/01/01','yyyy/mm/dd'),3000,null,null);
+       
+select * from emp_fk;
+
+insert into dept_fk values(20,'SALES','수원시');
+select * from dept_fk;
+/* foreign key로 지정된 칼럼의 데이타를 null 
+ *              -> 부모테이블의 domain값으로 update */
+update emp_fk
+   set deptno =20
+ where empno = 9998;
+ 
+select * from emp_fk;       
 
 
 
-
-
-
-
-
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
