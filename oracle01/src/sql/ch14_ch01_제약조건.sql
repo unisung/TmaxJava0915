@@ -180,6 +180,37 @@ alter table table_tel_unique
 rename constraint tbl_uniqu_tel to tbl_tel_unique;
 
 /* primary key 제약조건 (not null & unique) */
+create table table_pk(
+id varchar2(20) primary key,
+pwd varchar2(20) not null,
+tel varchar2(20)
+);
+/* 제약조건 조회 user_constraints */ 
+select * from user_constraints 
+where table_name ='TABLE_PK';
+
+insert into table_pk
+values ('hong','1234',null);
+
+/* 
+ORA-00001: unique constraint (SCOTT.SYS_C007027) violated*/
+insert into table_pk
+values ('hong','1234','010-111-1234');
+
+/* ORA-01400: cannot insert NULL into ("SCOTT"."TABLE_PK"."ID") */
+insert into table_pk
+values (null,'1234','010-111-1234');
+
+
+/* primary key 이름 부여 */
+create table table_pk2(
+id varchar2(20) constraint tblpk2_id_pk primary key,
+pwd varchar2(20) constraint tblpk2_pwd_nn not null,
+tel varchar2(20)
+);
+/* 제약조건 조회 user_constraints */ 
+select * from user_constraints 
+where table_name ='TABLE_PK2';
 
 
 
