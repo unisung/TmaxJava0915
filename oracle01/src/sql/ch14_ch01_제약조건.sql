@@ -212,6 +212,34 @@ tel varchar2(20)
 select * from user_constraints 
 where table_name ='TABLE_PK2';
 
+/* primary key 이름 부여 */
+create table table_pk3(
+id varchar2(20) ,
+pwd varchar2(20) not null,
+tel varchar2(20),
+primary key(id),
+constraint tbl_pwd_nn unique(pwd) /* not null제외 */
+);
+/* 제약조건 조회 user_constraints */ 
+select * from user_constraints 
+where table_name ='TABLE_PK3';
+
+/* primary key 이름 부여 */
+create table table_pk4(
+id varchar2(20) primary key,
+sno varchar2(20)primary key,
+pwd varchar2(20),
+tel varchar2(20)
+);
+/* 복합키로 주키생성시 */
+create table table_pk4(
+id varchar2(20),
+sno varchar2(20),
+pwd varchar2(20),
+tel varchar2(20),
+primary key (id,sno)/* primary key(칼럼1,칼럼2,..)*/
+);
+
 
 
 
