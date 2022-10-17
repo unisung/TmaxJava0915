@@ -120,10 +120,60 @@ alter table table_null
 drop constraint tbl_id_nn;
 
 
-/**/
+/*14-3. unique제약 조건 */
+create table table_unique(
+id varchar2(20) unique,
+pwd varchar2(20) not null,
+tel varchar2(20)
+);
 
+insert into table_unique
+values ('hong','1234','010-111-1234');
 
+/*ORA-00001: unique constraint (SCOTT.SYS_C007022) violated */
+insert into table_unique
+values ('hong','1234','010-111-1234');
 
+/* unique 제약조건은 null은 입력(중복) 입력가능 */
+insert into table_unique
+values (null,'1234','010-111-1234');
+
+select * from table_unique;
+
+/* 테이블의 id는  primary key, tel은 unique제약조건 */
+create table table_tel_unique(
+id varchar2(20) primary key,
+pwd varchar2(20),
+tel varchar2(20) unique
+);
+
+insert into table_tel_unique
+values ('hong','1234','010-111-1234');
+
+insert into table_tel_unique
+values ('kim','1234','010-111-5678');
+
+select * from table_tel_unique;
+
+/* ORA-00001: unique constraint (SCOTT.SYS_C007024) violated
+ * primary key(주키) 가 중복은 안되었지만 tel칼럼이 
+ * unique제약조건이므로 오류발생
+ * */
+insert into table_tel_unique
+values ('kang','1234','010-111-5678');
+
+/* 제약조건 조회 user_constraints */ 
+select * from user_constraints 
+where constraint_name not like 'BIN%';
+
+/* 제약조건 삭제 
+ * alter table 테이블명 drop costraint 제약조건명 */
+alter table table_tel_unique 
+ drop constraint SYS_C007024 ;
+ 
+/* 테이블 생성 후 제약조건 추가 하기 */ 
+ alter table table_tel_unique
+ modify (tel constraint tbl_uniqu_tel unique);
 
 
 
