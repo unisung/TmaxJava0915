@@ -344,16 +344,37 @@ delete from dept_fk where deptno=20;
 
 select * from emp_fk; 
 
+rollback;
+       
+       
+ /* emp_fk테이블의 foreign key 제약 조건 삭제 */
+alter table emp_fk 
+drop constraint empfk_deptno_fk;
 
+/* 참조되는 부모테이블의 칼럼값 삭제시 참조하는 모든 자식 테이블의
+ * 해당칼럼값을 null로 처리 */     
+alter table emp_fk
+add constraint empfk_deptno_fk 
+foreign key(deptno)
+references dept_fk(deptno)
+on delete set null;       
+       
+/* 제약조건 생성시 on delete 옵션추가 */
+select * from user_constraints 
+ where table_name=upper('emp_fk');       
        
        
+ /* on delete set null 적용 후 부모테이블의 칼럼값 삭제 */
+delete from dept_fk where deptno=20;
+select * from dept_fk;
+select * from emp_fk;
+
+
+      
        
        
-       
-       
-       
-       
-       
-       
-       
-       
+
+
+
+
+
