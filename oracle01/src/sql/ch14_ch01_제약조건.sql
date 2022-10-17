@@ -175,6 +175,15 @@ alter table table_tel_unique
  alter table table_tel_unique
  modify (tel constraint tbl_uniqu_tel unique);
 
+/*제약조건 이름변경 */
+alter table table_tel_unique
+rename constraint tbl_uniqu_tel to tbl_tel_unique;
+
+/* primary key 제약조건 (not null & unique) */
+
+
+
+
 
 
 
