@@ -106,6 +106,24 @@ modify ( login_id constraint tblN_loginid_notnull not null);
 select * from user_constraints 
 where constraint_name not like 'BIN%';
 
+/* 제약조건 명 변경
+ * alter table 테이블명 rename 이전제약조건명 to 새로운 제약조건명 */
+alter table table_null
+rename constraint tblN_loginid_notnull to tbl_tel_nn;
+
+alter table table_null
+rename constraint tbl_tel_nn to tbl_id_nn;
+
+/* 제약조건 삭제 */
+/* drop constraint 제약조건명 */
+alter table table_null
+drop constraint tbl_id_nn;
+
+
+/**/
+
+
+
 
 
 
