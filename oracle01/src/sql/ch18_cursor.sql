@@ -175,8 +175,88 @@ begin
 end;
 /
 
+/* ----- 묵시적 커서 ------------- */
+begin
+	update dept set dname ='DATABSE'
+	 where deptno=50;
+	 
+	dbms_output.put_line('갱신된 행의 수 : '||SQL%ROWCOUNT); 
 
-    
+	if  SQL%FOUND then
+	    DBMS_OUTPUT.PUT_LINE('갱신 대상 행 존재여부: true');
+	else
+	    DBMS_OUTPUT.PUT_LINE('갱신 대상 행 존재여부: false');
+	end if;
+	
+	if  SQL%isopen then
+	    DBMS_OUTPUT.PUT_LINE('커서의 open여부 : true');
+	else
+	    DBMS_OUTPUT.PUT_LINE('커서의 open여부 : false');
+	end if;
+	
+	end;
+/
+
+/*------------EXCEPTION -----------------------------*/
+/* 예외코드 */
+declare
+ v_wrong number;
+begin
+ select dname into v_wrong
+   from dept
+  where deptno=10;
+end;
+/
+
+/* 예외코드 처리 */
+declare
+ v_wrong number;
+begin
+ select dname into v_wrong
+   from dept
+  where deptno=10;
+  
+ EXCEPTION 
+   WHEN VALUE_ERROR THEN
+       DBMS_OUTPUT.PUT_LINE('예외처리 : 수치또는 값 오류 발생');
+end;
+/
+/** ---------  예외 발생시 이후 명령문 실행 안됨 ------------ **/
+declare
+ v_wrong number;
+begin
+ select dname into v_wrong
+   from dept
+  where deptno=10;
+
+  dbms_output.put_line('예외발생시 이 문자은 실행안됨');
+
+ EXCEPTION 
+   WHEN VALUE_ERROR THEN
+       DBMS_OUTPUT.PUT_LINE('예외처리 : 수치또는 값 오류 발생');
+end;
+/
+
+/* 사전 정의된 예외 사용하기 */
+declare
+ v_wrong number;
+begin
+ select dname into v_wrong
+   from dept
+  where deptno=10;
+  dbms_output.put_line('예외발생시 이 문자은 실행안됨');
+ EXCEPTION 
+   WHEN TOO_MANY_ROWS THEN
+       DBMS_OUTPUT.PUT_LINE('예외처리 : 요구보다 많은 행 출력오류발생');
+   WHEN VALUE_ERROR THEN
+       DBMS_OUTPUT.PUT_LINE('예외처리 : 수치또는 값 오류 발생');
+   WHEN DUP_VAL_ON_INDEX THEN
+       DBMS_OUTPUT.PUT_LINE('예외처리 : 중복저장 오류 발생');
+   WHEN OTHERS THEN
+       DBMS_OUTPUT.PUT_LINE('예외처리 : 사전 정의 외 오류 발생');
+end;
+/
+
 	   
 	   
 	   
