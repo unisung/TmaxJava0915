@@ -184,8 +184,48 @@ end ;
 /
 
 
+/* 트리거용 테이블 생성
+ */
+create table emp_trg
+as
+select * from emp;
+commit;
+
+select * from emp_trg;
+
+select to_char(sysdate,'dy') from dual;
+
+/*------- 트리거 ------------------*/
+create or replace trigger trg_emp_nodml_weekend
+before
+insert or update or delete on emp_trg
+begin
+   if to_char(sysdate,'DY') in ('토','일') then
+     if INSERTING THEN
+        raise_application_error(-20000,'주말 사원정보 추가 불가');
+     elsif updating then
+        raise_application_error(-20001,'주말 사원정보 수정 불가');
+     elsif deleting then
+        raise_application_error(-20002,'주말 사원정보 삭제 불가');
+     else
+        raise_application_error(-20003,'주말 사원정보 변경 불가');
+     end if;
+   end if; 
+end;
+/
+
+/*********** 트리거 조회 ***************************/
+select * from user_triggers;
+select * from user_objects where object_type='TRIGGER';
 
 
+
+select * from emp_trg;
+
+insert into emp_trg
+values (9999,'홍길동','MANAGER',NULL,sysdate,5000,null,10);
+
+commit;
 
 
 
