@@ -335,7 +335,57 @@ loop
 end loop;
 end;
 /
-/*-----------------------------------------*/
+
+/*----------------------------------------------*/
+/*------------- while loop ---------------------*/
+declare
+v_num number :=0;
+begin
+ while v_num < 4 loop
+   dbms_output.put_line('현재 v_num:'||v_num);
+   v_num := v_num+1;
+ end loop;
+end;
+/
+
+/**------------ for i in 시작..끝 loop -----------------*/
+begin
+ for i in 0..4 loop
+    dbms_output.put_line('현재 i의 값:'|| i );
+ end loop;
+end;
+/
+/**--------- for i in reverse 시작..끝 loop -------------*/
+begin
+ for i in reverse 0..4 loop
+    dbms_output.put_line('현재 i의 값:'|| i );
+ end loop;
+end;
+/
+
+/**--------- continue when -------------*/
+begin
+for i in 0..4 loop
+  continue when mod(i,2) =1;
+  dbms_output.put('현재 i의 값:'||i||' ');
+end loop;
+  dbms_output.put_line('');
+end;
+/
+
+/**--------- if 조건 then continue  -------------*/
+begin
+for i in 0..4 loop
+  if mod(i,2) =1 then
+  --continue when mod(i,2) =1;
+    continue;
+  end if;
+  dbms_output.put('현재 i의 값:'||i||' ');
+end loop;
+  dbms_output.put_line('');
+end;
+/
+
 
 
 
