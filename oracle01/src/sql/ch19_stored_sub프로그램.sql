@@ -97,6 +97,38 @@ begin
 dbms_output.put_line('no:'||in_no);
 end;
 /
-/*-------------------------------------*/
+/*---------------  컴파일 에러 확인 ------------------*/
+select * from user_Errors;
+
+
+/*============= 함수(FUNCTION) ======================*/
+CREATE OR REPLACE FUNCTION func_aftertax
+( sal number )
+return number
+is
+  tax number :=0.05;
+begin
+	return round(sal-(sal*tax));
+end func_aftertax;
+/
+
+
+/* sql에서 호출하기 */
+select empno, ename, sal, func_aftertax(sal)
+  from emp
+ order by empno;
+ 
+/*--- 익명블럭에서 실행 ----*/ 
+declare
+aftertax number;
+begin
+ aftertax :=func_aftertax(3000);
+dbms_output.put_line('after-tax income :'||aftertax); 
+end;
+/
+
+
+
+
 
 
