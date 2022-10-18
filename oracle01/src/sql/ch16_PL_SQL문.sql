@@ -309,3 +309,33 @@ begin
 end;
 /
       
+
+/*----------- 기본 loop exit when -------- */
+declare
+v_num number := 0;
+begin
+loop
+  dbms_output.put_line('현재 v_num:'||v_num);
+  v_num :=v_num+1;
+  exit when v_num > 4;
+end loop;
+end;
+/
+/*----------- 기본 loop exit --------------*/
+declare
+v_num number := 0;
+begin
+loop
+  dbms_output.put_line('현재 v_num:'||v_num);
+  v_num :=v_num+1;
+  --exit when v_num > 4;
+  if  v_num > 4 then
+     exit;
+  end if;
+end loop;
+end;
+/
+/*-----------------------------------------*/
+
+
+
