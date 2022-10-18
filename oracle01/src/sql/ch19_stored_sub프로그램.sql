@@ -228,7 +228,83 @@ values (9999,'홍길동','MANAGER',NULL,sysdate,5000,null,10);
 commit;
 
 
+/* */
+create table emp_trg_log(
+tablename varchar2(10),
+dml_type varchar2(10),
+empno number(4),
+user_name varchar2(30),
+change_date date
+);
 
+
+/*트리거 생성 */
+create or replace trigger trg_emp_log
+after
+insert or update or delete on emp_trg
+for each row
+begin
+  if inserting then
+     insert into emp_trg_log
+     values('EMP_TRG', 'INSERT', :new.empno,/*:old-null, :new-입력값*/
+             sys_context('USERENV','SESSION_USER'),sysdate);
+             
+  elsif updating then
+     insert into emp_trg_log
+     values('EMP_TRG', 'UPDATE', :old.empno,/*:old-수정전,:new-수정후값*/
+             sys_context('USERENV','SESSION_USER'),sysdate);
+     
+  
+  elsif deleting then
+     insert into emp_trg_log
+     values('EMP_TRG', 'DELETING', :old.empno,/*:old-삭제전,:new-null*/
+             sys_context('USERENV','SESSION_USER'),sysdate);
+  
+  end if;
+end;
+/
+
+alter trigger trg_emp_log disable;
+
+update emp_trg 
+   set sal = sal+sal*0.10;
+  where empno=7788;
+
+select * from emp_trg_log;  
+
+
+/**/
+create table emp_trg_log2
+as
+select empno , sal as fromsal, sal tosal, sysdate chg_date
+  from emp
+ where 1=0;
+ 
+ select * from emp_trg_log2;
+ 
+
+create or replace trigger trg_emp_log2
+after
+ update on emp_trg
+for each row
+begin
+  if updating then
+     insert into emp_trg_log
+     values(:old.empno, :old.sal, :new.sal, sysdate);
+  end if;
+end;
+/
+
+
+select * from user_triggers;
+
+update emp_trg
+   set sal = sal+sal*0.05
+ where empno=7788;
+ 
+select * from emp_trg where empno=7788;
+
+select * from emp_trg_log2;
 
 
 
