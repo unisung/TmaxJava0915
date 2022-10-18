@@ -273,7 +273,23 @@ begin
 end;
 /
 
-	   
+/*--- SQL코드, SQLERRM ---*/
+declare
+ v_wrong number;
+begin
+	select dname into v_wrong
+	  from dept
+	 where deptno = 10;
+	 
+	 dbms_output.put_line('예외가 발생하면 다음 문장은 실행되지않습니다.');
+	 
+	 EXCEPTION 
+	   where others then
+	     dbms_output.put_line('예외처리: 사전 정의 외 오류 발생');
+	     dbms_output.put_line('SQLCODE: '||TO_CHAR(SQLCODE));
+	     dbms_output.put_line('SQLERRM: '||SQLERRM);
+end;
+/
 	   
 	   
 
