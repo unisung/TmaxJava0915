@@ -79,8 +79,24 @@ dbms_output.put_line('sal:'||v_sal);
 end;
 /
 
+/* IN OUT 모드 파라미터 */
+CREATE OR REPLACE PROCEDURE pro_param_input
+( input_no IN OUT number )
+is
+begin
+	input_no := input_no * 2;
+end pro_param_input;
+/
 
-
-
+/* IN OUT 모드 파라미터 있는 프로시저 실행 */
+declare
+in_no number;/* IN OUT용 변수 선언*/
+begin
+  in_no :=5;
+ pro_param_inout(in_no);
+dbms_output.put_line('no:'||in_no);
+end;
+/
+/*-------------------------------------*/
 
 
