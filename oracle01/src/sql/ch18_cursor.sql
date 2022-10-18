@@ -165,7 +165,23 @@ begin
 	 loop
 	   fetch c1 into v_dept_row;
 	   exit when c1%notfound;
-	   dbms_output.put_line('10 번부서-deptno'
+	   dbms_output.put_line(v_deptno||'번부서-deptno'
+	           ||v_dept_row.deptno
+	           ||'dname-'||v_dept_row.dname
+	           ||'loc-'||v_dept_row.loc);
+	 end loop;
+	 --close 커서
+	 close c1;
+	 
+	  -- 입력데이타 바인딩변수 선언
+     v_deptno := &input_data;
+	 -- open 커서
+	 open c1(v_deptno);
+	 -- fetch 커서
+	 loop
+	   fetch c1 into v_dept_row;
+	   exit when c1%notfound;
+	   dbms_output.put_line(v_deptno||'번부서-deptno'
 	           ||v_dept_row.deptno
 	           ||'dname-'||v_dept_row.dname
 	           ||'loc-'||v_dept_row.loc);
