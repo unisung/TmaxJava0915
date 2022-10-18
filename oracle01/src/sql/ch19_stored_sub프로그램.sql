@@ -128,6 +128,67 @@ end;
 /
 
 
+/* 패키지 생성 */
+create or replace package pkg_example
+is
+ spec_no number :=10;
+ function func_aftertax(sal number) return number;
+ procedure pro_emp(in_empno in emp.empno%type);
+ procedure pro_dept(in_deptno in dept.deptno%type);
+end;
+/
+
+/* body 생성 */
+create or replace package body pkg_example
+is
+ body_no number :=10;
+ function func_aftertax(sal number) return number
+ is
+ tax number :=0.05;
+ begin
+	 return round(sal-(sal*tax));
+ end func_aftertax;
+ procedure pro_emp(in_empno in emp.empno%type)
+ is
+  out_name emp.ename%type;
+  out_sal emp.sal%type;
+  begin
+	  select ename, sal 
+	    into out_name, out_sal
+	    from emp
+	   where empno = in_empno;
+	   dbms_output.put_line('ename: '||out_name);
+	   dbms_output.put_line('sal: '||out_sal);
+  end pro_emp;
+procedure pro_dept(in_deptno in dept.deptno%type)
+is
+out_dname dept.dname%type;
+out_loc dept.loc%type;
+begin
+	select dname,loc
+	  into out_dname,out_loc
+	  from dept
+	 where deptno = in_deptno;
+	 dbms_output.put_line('dname: '||out_dname);
+	dbms_output.put_line('loc: '||out_loc);
+end pro_dept;
+end;
+/
+
+/** 실행 패키지명.서브프로그램 */
+begin
+  dbms_output.put_line('----pkg_example.function');
+  dbms_output.put_line('aftertax:'||pkg_example.func_aftertax(3000));
+  
+end ;
+/
+
+
+
+
+
+
+
 
 
 
