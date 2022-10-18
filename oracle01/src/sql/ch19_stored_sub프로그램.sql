@@ -68,7 +68,16 @@ end pro_param_out;
 /
 
 
-
+/*----  out모드의 파라미터 출력용 변수 선언 하여 실행결과 출력 ------*/
+declare
+v_ename emp.ename%type;
+v_sal emp.sal%type;
+begin
+pro_param_out(7788,v_ename,v_sal);
+dbms_output.put_line('ename:'||v_ename);
+dbms_output.put_line('sal:'||v_sal);
+end;
+/
 
 
 
