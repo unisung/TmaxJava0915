@@ -1,0 +1,76 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@700&display=swap');
+/* 선택자(selector *, 태그(a,ul,header),id(#아이디명),
+  class(.클래스명) */
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;/* 박스영역 테두리까지  */	
+}
+a{text-decoration: none;}
+ul{ list-style: none;}
+#container{
+ margin: 0 auto ;	
+ width: 1200px;
+ background-color: #fff;	
+}
+/* 헤더 영역 - 로고와 내비게이션 */
+header{
+	width: 100%;/* 해당요소를 감싸는 부모요소의 크기로 맞춤 */
+	height: 100px;/* 높이 */
+	background-color: #045;
+}
+/* 로고*/
+#logo{
+	float:left;/* 왼쪽 플로팅 */
+	width: 250px;
+	height: 100px;
+	line-height: 100px;/*세로 중간 맞춤 - 줄간격을 높이 값과 같게  */
+	padding-left: 20px;
+}
+/* 자손태그선택자 */
+#logo h1{
+	font-family: 'Merienda', cursive;
+	font-weight: 700;
+	font-size: 40px;
+	color:#fff;
+	text-shadow: 0 -1px 0 #222;
+}
+/* 내비게이션(메뉴) */
+nav{
+	float:right;
+	width: 900px;
+	height: 100px;
+	padding-top: 40px;  
+}
+#topMenu{
+	height: 60px;
+}
+/* 자식선택자 li  */
+#topMenu > li {
+	float: left;
+	position: relative;
+}
+/* 자식선택자 li 바로 아래 a태그 */
+#topMenu > li > a{
+ display: block;/* 인라인 요소를 블럭요소로 변경-폭/높이 조절가능 */
+ font-size: 1.1em;/* 폰트사이즈 110% */
+ color: #fff;/* 글자색 */
+ font-weight: 600;/* 굵기 */
+ padding: 20px 60px;
+}
+/* 가상선택자 a:hover - a태그영역에 마우스를 올렸을 때 스타일 */
+#topMenu > li > a:hover{
+	color:#1fa8f8;
+	text-shadow: 0 -2px #222;
+}
+/* 본문 */
+.contents{
+	width: 1000px;
+	margin: 50px auto;
+}
+
+
+
+
+
