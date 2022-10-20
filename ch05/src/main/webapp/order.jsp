@@ -14,6 +14,8 @@
    String tel = request.getParameter("tel");
    String[] gubuns = request.getParameterValues("gubun");
    String pack = request.getParameter("pack");
+   
+   pageContext.setAttribute("id", id);
 %>
 <%
 	out.println("id:"+id+"<br>");
@@ -32,6 +34,5 @@
     
 	out.println("선물포장여부:"+pack);
 %>
-
 </body>
 </html>
