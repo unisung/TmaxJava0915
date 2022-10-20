@@ -30,6 +30,7 @@
     	}else
         out.print(gubuns[i]+"<br>");	
     }
+ 
     out.print(Arrays.toString(gubuns)+"<br>");
     
 	out.println("선물포장여부:"+pack);
