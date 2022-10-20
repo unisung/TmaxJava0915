@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>autofocus placeholder</title>
+</head>
+<body>
+<form>
+ <label>
+  아이디<input id="id" autofocus>
+ </label><br>
+ 
+ <label>
+  이름<input id="name" value="홍길동" readonly>
+ </label><br>
+ 
+ <label>
+  연락처<input id="tel" placeholder="-없이 숫자만 입력(0101111234)">
+ </label><br>
+ 
+ <label>
+  배송주소<input id="addr" required>
+ </label><br>
+ <input type="submit" onclick="chck();">
+ 
+</form>
+<script type="text/javascript">
+function chck(){
+ var v_addr = document.getElementById('addr').value;
+ if(v_addr.length==0){
+	 alert('값을 입력하세요');
+	 return false;
+ }else{
+	 return true;
+ }
+}
+
+</script>
+</body>
+</html>
