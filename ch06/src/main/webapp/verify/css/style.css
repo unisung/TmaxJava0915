@@ -1,1 +1,14 @@
 @charset "UTF-8";
+h1{
+    display:inline-block;/* 블럭요소를 인라인요소처럼 변경하면서 폭과높이 조절가능 */
+    font-size:1.4em;
+	padding: 10px;
+	background-color:#222;
+	color: #fff; 
+}
+ul{list-style: none;}
+li{
+   color:blue;
+   font-size: 1.2em;
+   line-height: 1.5em;
+}
