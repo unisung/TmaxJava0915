@@ -2,13 +2,22 @@
 <meta charset="UTF-8">
 <title>position</title>
 <style>
-p{width: 500px; height: 200px; background-color: #eee; border: 1px solid #ccc;}
+p{width: 500px; height: 200px; background-color: #eee; 
+  border: 1px solid #ccc; line-height: 2;}
+#static{ position: static;}
+#relative-1{position: relative;} 
+#relative-2{position: relative; left:100px; top:-50px;}
+#fixed{position: fixed;/* body기준 고정 위치 */
+       width: 100px;
+       height: 100px;
+       right: 30px;
+       top: 30px;}
 </style>
 </head>
 <body>
-<p id="static">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt pretium quam nec dapibus. Fusce posuere rutrum mi at tempus. Donec semper, purus et vehicula pulvinar, tortor lorem efficitur metus, eu sodales metus sem vel odio. Phasellus venenatis aliquam porta. Fusce dignissim, eros eu iaculis aliquam, tellus magna volutpat libero, et sodales velit massa suscipit urna. Vivamus et pellentesque sem, vel luctus orci.</p>
-<p id="relative-1">Cras sodales elit nisl, id facilisis ante imperdiet vel. Cras imperdiet tincidunt finibus. Cras malesuada lorem augue, et porttitor urna mollis nec. Phasellus ut elit sed arcu bibendum sodales. Suspendisse malesuada blandit sapien, et porta ex sodales non. Quisque vulputate rutrum diam, non blandit nulla iaculis sed. Nullam vehicula neque eros, id euismod risus feugiat id. Integer convallis ultricies lacus sed euismod.</p>
-<p id="relative-2">Donec sit amet est vel erat ornare bibendum non quis purus. Suspendisse dolor magna, condimentum vel facilisis quis, sodales eget erat. Morbi nec neque varius, mattis diam et, placerat metus. Nulla tempor luctus pulvinar. Donec lectus ipsum, ornare vitae orci ut, porttitor porttitor ipsum. Fusce a sem imperdiet, lobortis metus a, commodo lorem. Cras pulvinar porttitor eros, a pulvinar purus mollis vitae.</p>
+<p id="static">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt pretium quam nec dapibus. Fusce posuere rutrum mi at tempus. Donec semper, purus et vehicula pulvinar, tortor lorem efficitur metus, eu sodales metus sem vel odio. Phasellus venenatis aliquam porta. </p>
+<p id="relative-1">Cras sodales elit nisl, id facilisis ante imperdiet vel. Cras imperdiet tincidunt finibus. Cras malesuada lorem augue, et porttitor urna mollis nec. Phasellus ut elit sed arcu bibendum sodales. Suspendisse malesuada blandit sapien, et porta ex sodales non. </p>
+<p id="relative-2">Donec sit amet est vel erat ornare bibendum non quis purus. Suspendisse dolor magna, condimentum vel facilisis quis, sodales eget erat. Morbi nec neque varius, mattis diam et, placerat metus. Nulla tempor luctus pulvinar. </p>
 <p id="fixed"></p> 
 </body>
 </html>
