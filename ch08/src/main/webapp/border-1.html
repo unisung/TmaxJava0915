@@ -1,0 +1,31 @@
+<!DOCTYPE html><html><head>
+<meta charset="UTF-8">
+<title>box 테두리</title>
+<style type="text/css">
+div{
+	width: 200px;
+	height: 100px;
+	display: inline-block;/* 블럭요소를 인란인처럴 배치 하면 폭과 높이 지정 */
+	margin: 15px;
+	text-align: center;
+	font-size: 20px;
+	line-height: 100px;/* height와 line-height를 같게-세로 중앙 정렬 */
+	border-width: 5px;
+}
+#box1{border-style:solid;}/* 실선 */
+#box2{border-style:dotted;}/* 점선 */
+#box3{border-style:dashed;}/* 짧은 실선 */
+#box4{border-style:double;}/* 이중실선 */
+#box5{border-style:groove;}/* 창에조각난것같은 홈이 파인듯한 입체감 */
+#box6{border-style:inset;}/* 창에 박힌 효과 */
+</style>
+</head>
+<body>
+<div id="box1">실선테두리</div>
+<div id="box2">점선선테두리</div>
+<div id="box3">짧은 직선 테두리</div>
+<div id="box4">이중실선 테두리</div>
+<div id="box5">groove 테두리</div>
+<div id="box6">inset 테두리</div>
+</body>
+</html>
