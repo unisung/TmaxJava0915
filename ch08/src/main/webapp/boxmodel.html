@@ -9,9 +9,9 @@
 /* 헤더-로고와 메뉴  */
 header{ width: 100%; height: 80px; border:1px solid #000;}
 /* content1 */
-#content1{ width: 100%; height: 600px; border:1px solid #000; }
+#content1{ width: 100%; height: 500px; border:1px solid #000; }
 /* content2 */
-#content2{ width: 100%; height: 300px; border:1px solid #000; }
+#content2{ width: 100%; height: 250px; border:1px solid #000; }
 footer{width: 100%; height: 60px; border:1px solid #000;}
 </style>
 </head>
@@ -36,10 +36,49 @@ footer{width: 100%; height: 60px; border:1px solid #000;}
         <li>드레싱 재료를 믹서에 갈아줍니다.</li>
         <li>볼에 샐러드 채소와 썰어 둔 레드향, 아보카도, 토마토를 넣고 드레싱을 뿌리면 끝!</li>
       </ol>
-      <hr>
-    </div>
+    </div> 
     <div id="content2">
-    
+    <h2>상품 구성</h2>
+      <table>
+        <caption>선물용과 가정용 상품 구성</caption>
+        <colgroup>
+          <col style="background-color:#eee;">
+          <col>
+          <col span="2" style="width:150px">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>용도</th>
+            <th>중량</th>
+            <th>갯수</t>
+            <th>가격</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="2">선물용</td>
+            <td>3kg</td>
+            <td>11~16과</td>
+            <td>35,000원</td>
+          </tr>
+          <tr>
+            <td>5kg</td>
+            <td>18~26과</td>
+            <td>52,000원</td>
+          </tr>
+          <tr>
+            <td rowspan="2">가정용</td>
+            <td>3kg</td>
+            <td>11~16과</td>
+            <td>30,000원</td>
+          </tr>   
+          <tr>
+            <td>5kg</td>
+            <td>18~26과</td>
+            <td>47,000원</td>
+          </tr>
+        </tbody>        
+      </table>
     </div>
     <footer>
     
