@@ -1,0 +1,29 @@
+<!DOCTYPE html><html><head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+#container{width: 800px; height: 20px auto;}
+.origin{width: 100px; height: 100px; float: left; margin: 40px; 
+        border:1px solid black;
+        perspective:200px;}/* 원근감 추가 */
+.origin > div{width: 100px; height: 100px; background-color: orange;
+              } 
+#skewX:hover{transform:skewX(30deg);}              
+#skewY:hover{transform:skewY(15deg);}              
+#skewXY:hover{transform:skew(-30deg,-15deg);}              
+</style>
+</head>
+<body>
+<div id="container">
+  <div class="origin">
+  	<div id="skewX"></div>
+  </div>
+  <div class="origin">
+  	<div id="skewY"></div>
+  </div>
+  <div class="origin">
+  	<div id="skewXY"></div>
+  </div>
+</div>
+</body>
+</html>
