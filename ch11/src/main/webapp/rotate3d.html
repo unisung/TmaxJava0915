@@ -1,0 +1,33 @@
+<!DOCTYPE html><html><head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+#container{width: 800px; height: 20px auto;}
+.origin{width: 100px; height: 100px; float: left; margin: 40px; 
+        border:1px solid black;
+        perspective:200px;}/* 원근감 추가 */
+.origin > div{width: 100px; height: 100px; background-color: orange;
+              transition:all 3s;} /* 회전 트랜지션 3초 */            
+#rotateX:hover{transform:rotateX(40deg);}
+#rotateY:hover{transform:rotateY(40deg);}
+#rotateZ:hover{transform:rotateX(40deg);}
+#rotateXYZ:hover{transform:rotate3d(2.5,1.2,-1.5, 40deg);}
+</style>
+</head>
+<body>
+<div id="container">
+  <div class="origin">
+  	<div id="rotateX"></div>
+  </div>
+  <div class="origin">
+  	<div id="rotateY"></div>
+  </div>
+  <div class="origin">
+  	<div id="rotateZ"></div>
+  </div>
+  <div class="origin">
+  	<div id="rotateXYZ"></div>
+  </div>
+</div>
+</body>
+</html>
