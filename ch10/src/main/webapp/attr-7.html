@@ -1,0 +1,22 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<title>속성 선택자</title>
+<style>
+ul{list-style: circle;}
+li{padding: 5px 30px;}
+li a{ font-size: 16px; text-decoration: none;
+      font-weight: bold;}
+/* [속성 *= 값] */
+a[href*="w3"]{
+background: blue;
+color: white;
+}
+</style>
+</head>
+<body>
+<ul>
+<li><a href="https://html.spec.whatwg.org" target="_blank">HTML</a></li>
+<li><a href="https://www.w3.org/TR/selectors">CSS Selector Level 3</a></li>
+<li><a href="https://www.w3.org/TR/css3-mediaqueries">미디어쿼리</a></li>
+</ul>
+</body>
+</html>
