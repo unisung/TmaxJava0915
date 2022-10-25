@@ -26,6 +26,21 @@ font-size: 14px; padding: 10px; text-decoration: none;
  #signup input:checked + label{
     color: red;
     font-weight: bold;
+ }
+ #signup input:not([type=radio]){
+ border: 1px solid #ccc; border-radius: 3px; padding: 5px; width: 200px;
+ }
+ #signup input:not([type=radio]):hover{
+  border-color: #f00;
+ }
+ #signup button{
+ border:1px solid #222;
+ border-radius: 20px;
+ display: block;/* 인라인레벨 요소를 블럭레벨요소로 변환 */
+ font:16px 맑은고딕,굴림,돋움;
+ letter-spacing: 1px;
+ margin: auto;
+ padding: 7px 25px;
  }   
 </style>
 </head>
