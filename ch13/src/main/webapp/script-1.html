@@ -1,0 +1,21 @@
+<!DOCTYPE html><html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>글자색 바꾸기</title>
+<style>
+body{text-align: center;}
+#heading{color: blue;}
+#text{color: gray; font-size: 15px;}
+</style>
+</head>
+<body>
+<h1 id="heading">자바스크립트</h1>
+<p id="text">위 텍스트를 클릭해 보세요</p>
+<!-- 자바스크립트의 위치는 head, body어디든 상관없음.
+    단, 해당요소를 사용하려면 해당요소 이후에 표시 -->
+<script type="text/javascript">
+  var heading = document.querySelector('#heading');
+  heading.onclick=function(){heading.style.color='red';}
+</script>
+</body>
+</html>
