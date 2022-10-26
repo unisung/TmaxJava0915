@@ -1,0 +1,38 @@
+<!DOCTYPE html><html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, intial-scale=1">
+<title>CSS grid layout</title>
+<style>
+#wrapper1{ 
+display: grid; /* grid 컨테이너 지정*/
+grid-template-columns: repeat(auto-fit,minmax(200px,1fr));/* 화면을 꽉 채울만큼 칼럼 너비를 늘려서 표시 */
+margin-bottom:20px;
+}
+#wrapper2{display: grid;
+grid-template-columns: repeat(auto-fill,minmax(200px,1fr));/* 화면을 꽉 채울만큼 칼럼 너비를 늘려서 표시 */
+}
+.items{padding: 15px; background-color: #eee;}
+.items:nth-child(odd){background-color: #bbb;}
+h1{font-size: 24px;}
+</style>
+</head>
+<body>
+<div id="wrapper1">
+<h1>auto-fit일 때</h1>
+<div class="items">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sodales tincidunt hendrerit. Proin sit amet fermentum ipsum. Aliquam erat volutpat.</div> 
+<div class="items">Phasellus vitae varius massa. Nulla dignissim orci sed faucibus condimentum.</div> 
+<div class="items">Quisque tempor, risus vitae pellentesque faucibus, eros ante venenatis turpis,</div>
+<div class="items">Sed ac massa molestie nisi commodo tempor. Nullam molestie metus nunc,</div> 
+<div class="items">Duis vestibulum leo nec erat malesuada fringilla. Sed suscipit dictum elit, condimentum venenatis ipsum auctor ut.</div> 
+</div>
+
+<div id="wrapper2">
+<h1>auto-fill일 때</h1>
+<div class="items">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sodales tincidunt hendrerit. Proin sit amet fermentum ipsum. Aliquam erat volutpat.</div> 
+<div class="items">Phasellus vitae varius massa. Nulla dignissim orci sed faucibus condimentum.</div> 
+<div class="items">Quisque tempor, risus vitae pellentesque faucibus, eros ante venenatis turpis,</div>
+<div class="items">Sed ac massa molestie nisi commodo tempor. Nullam molestie metus nunc,</div> 
+<div class="items">Duis vestibulum leo nec erat malesuada fringilla. Sed suscipit dictum elit, condimentum venenatis ipsum auctor ut.</div> 
+</div>
+</body>
+</html>
