@@ -1,0 +1,23 @@
+<!DOCTYPE html><html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, intial-scale=1">
+<title>CSS grid layout</title>
+<style>
+#wrapper{ display: grid; /* grid 컨테이너 지정*/
+grid-template-columns: 200px 200px 200px;/* 너비 200px 칼럼 3개 */
+grid-template-rows:100px;}/* 줄 높이 100px  */
+.items{padding: 10px; background-color: #eee;}
+.items:nth-child(odd){background-color: #bbb;}
+</style>
+</head>
+<body>
+<div id="wrapper">
+<div class="items">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sodales tincidunt hendrerit. Proin sit amet fermentum ipsum. Aliquam erat volutpat.</div> 
+<div class="items">Phasellus vitae varius massa. Nulla dignissim orci sed faucibus condimentum.</div> 
+<div class="items">Quisque tempor, risus vitae pellentesque faucibus, eros ante venenatis turpis,</div>
+<div class="items">Sed ac massa molestie nisi commodo tempor. Nullam molestie metus nunc,</div> 
+<div class="items">Duis vestibulum leo nec erat malesuada fringilla. Sed suscipit dictum elit, condimentum venenatis ipsum auctor ut.</div> 
+</div>
+
+</body>
+</html>
