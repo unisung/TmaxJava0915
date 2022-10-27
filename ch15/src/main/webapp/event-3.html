@@ -17,7 +17,19 @@ p{width: 80%; padding: 10px; line-height: 2em;}
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam volutpat id risus nec viverra. Curabitur eu eros at nisl sodales tempus. Phasellus augue risus, eleifend et sapien nec, varius commodo turpis.</p>
 
 <script>
+//방법1. 웹 요소를 변수로 지정 & 미리 만든 함수 사용
+var changeBtn = document.querySelector("#change");
+changeBtn.onclick = changeColor;
 
+function changeColor(){
+	document.querySelector("p").style.color="#f00";
+}
 </script>
+
+
+
+
+
+
 </body>
 </html>
