@@ -1,0 +1,21 @@
+<!DOCTYPE html><html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>변수의 호이스트</title>
+</head>
+<body>
+<script>
+  var x=0;
+  
+  function displayNumber(){
+	  console.log("x is "+x);
+	  console.log("y is "+y);
+	  /* 사용할 위치 이전에 변수를 선언하면
+	     이미 선언한 것으로 인식-호이스팅*/
+	  var y=10;
+  }
+  
+  displayNumber();
+</script>
+</body>
+</html>
