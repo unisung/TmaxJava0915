@@ -1,0 +1,31 @@
+<!DOCTYPE html><html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+/* 객체선언 
+  JSON
+ */
+var car={/* 속성-property */
+		 "company":"현대",
+		 "model":"소나타",
+		 "color":"흰색",
+		 "cc":3.5,
+		 /* 메소드*/
+		 "start":function(){alert("start");},
+		 "move":function(){alert("run");},
+		 "stop":function(){alert("stop");},
+		 "parking":function(){alert("park");},
+		 "toLocaleString":function(){ var now = new Date();
+		                               alert(now.toLocaleString());}
+		};
+car.start();
+car.move();
+car.stop();
+car.parking();
+car.toLocaleString();
+</script>
+</body>
+</html>
