@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="ko">
+<!DOCTYPE html><html lang="ko">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
@@ -20,5 +19,26 @@
     <div id="lightbox">
 			<img src="images/tree-1.jpg" alt="" id="lightboxImage">			
     </div>
+    
+<script>
+var pics = document.getElementsByClassName("pic");
+var lightbox = document.getElementById("lightbox");
+var lightboxImage = document.getElementById("lightboxImage");
+//이벤트 리스너 추가
+for(i=0;i<pics.length;i++){
+  pics[i].addEventListener("click",showLightbox);
+}
+
+function showLightbox(){
+	var bigLocation = this.getAttribute("data-src");//
+	lightboxImage.setAttribute("src",bigLocation);
+	lightbox.style.display="block";
+}
+
+lightbox.onclick=function(){
+	lightbox.style.display="none";
+}
+
+</script>    
   </body>
 </html>
