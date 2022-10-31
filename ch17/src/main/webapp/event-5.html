@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<style>
+#container{width: 300px; margin: 10px auto;}
+</style>
+</head>
+<body>
+<div id="container" name="container" class="container">
+	<img src="images/easys-1.jpg" id="cover" name="cup" class="cup">
+</div>
+
+<script type="text/javascript">
+var cover = document.getElementById("cover");
+cover.addEventListener("mouseover",changePic,false);
+cover.addEventListener("mouseout",originPic,false);
+
+function changePic(){cover.src="images/easys-2.jpg"}
+function originPic(){cover.src="images/easys-1.jpg"}
+
+</script>
+</body>
+</html>
