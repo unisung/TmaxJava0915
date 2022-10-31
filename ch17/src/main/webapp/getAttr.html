@@ -1,0 +1,26 @@
+<!DOCTYPE html><html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>에디오피아 게뎁</title>
+</head>
+<body>
+<div id="container">
+  <h1 id="heading">에디오피아 게뎁</h1>
+  <div id="prod-pic">
+    <img src="images/coffee-pink.jpg" alt="에디오피아 게뎁"
+      id="cup" width="200" height="200" onclick="displaySrc()">
+     <div id="small-pic">
+        <img src="images/coffee-pink.jpg" class="small">
+        <img src="images/coffee-blue.jpg" class="small">
+        <img src="images/coffee-gray.jpg" class="small">
+     </div>
+  </div>
+</div>
+<script>
+function displaySrc(){
+	var cup = document.querySelector("#cup");
+	alert("이미지 소스 : " +cup.getAttribute("src"));
+}
+</script>
+</body>
+</html>
