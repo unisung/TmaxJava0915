@@ -2,6 +2,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>에디오피아 게뎁</title>
+<link rel="stylesheet" href="css/product.css">
 </head>
 <body>
 <div id="container">
@@ -24,7 +25,7 @@
     <li>로스팅: 2019.06.17</li>
     <button>장바구니 담기</button>
    </ul>
-   <a href="#" id="view">상세 설명 보기</a>
+<a href="#" id="view" onclick="display()">상세 설명 보기</a>
   </div>
   
   <div id="detail">
@@ -52,6 +53,9 @@
 function displaySrc(){
 	var cup = document.querySelector("#cup");
 	alert("이미지 소스 : " +cup.getAttribute("src"));
+}
+function display(){
+ document.querySelector("#detail").setAttribute("display","block");	
 }
 </script>
 </body>
