@@ -63,8 +63,10 @@ for(let i=0;i<smallPics.length;i++ ){
 	smallPics[i].addEventListener("click",changePic);
 }
 function changePic(){
+	var thisEvent=this;
+	alert(thisEvent);
 	var newPic = this.src;//이벤트가 발생한요소자신의 src속성
-	//alert(newPic);
+	alert(thisEvent.getAttribute("src"));
 	cup.setAttribute("src",newPic);//setAttribute(속성명,값);
 }
 function displaySrc(){
