@@ -1,0 +1,22 @@
+<!DOCTYPE html><html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DOM event 객체</title>
+</head>
+<body>
+<div id="container" name="container">
+	<img src="images/cup-1.png" id="cup" name="cup" class="cup">
+</div>
+
+<script>
+//var cup = document.querySelector("#cup");//id=cup인 요소(element)를 가져옴.
+//var cup = document.getElementById("cup");
+//var cup = document.getElementsByClassName("cup")[0];
+var cup = document.getElementsByTagName("img")[0];
+cup.onclick = function(){
+	alert("이미지를 클릭했습니다.");
+};
+</script>
+
+</body>
+</html>
