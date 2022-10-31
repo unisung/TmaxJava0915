@@ -1,0 +1,50 @@
+<!DOCTYPE html><html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<style>
+*{
+  box-sizing:border-box;
+}
+#container {  
+  width:500px;
+  margin:20px auto;
+  padding:20px;
+}
+input[type="text"] {
+  width:370px;
+  float:left;
+  height:30px;
+  padding-left:30px;
+}
+button {
+  width:90px;
+  height:30px;
+  float:right;
+  background:#222;
+  color:#fff;
+  border:none;
+}
+hr { clear:both; display:none; }
+ul { list-style:none; padding-top:50px;}
+li { line-height: 2.5; }
+li:hover { cursor:pointer;}
+</style>
+</head>
+<body>
+<h1>Web Programming</h1>
+<ul id="itemList">
+  <li>HTML</li>
+  <li>CSS</li>
+  <li>Javascript</li>
+</ul>
+
+
+<script>
+var lis = document.querySelectorAll("li");
+for(i=0;i<lis.length;i++){
+	console.log('document.querySelectorAll("li")'+lis[i].innerHTML+'');
+}
+</script>
+</body>
+</html>
