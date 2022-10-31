@@ -1,0 +1,30 @@
+<!DOCTYPE html><html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DOM event 객체</title>
+<style>
+#container{width: 300px; margin: 10px auto;}
+</style>
+</head>
+<body>
+<div id="container" name="container">
+	<img src="images/cup-1.png" id="cup" name="cup" class="cup">
+</div>
+
+<script>
+//var cup = document.querySelector("#cup");//id=cup인 요소(element)를 가져옴.
+//var cup = document.getElementById("cup");
+//var cup = document.getElementsByClassName("cup")[0];
+var cup = document.getElementsByTagName("img")[0];
+cup.onclick = function(event){
+	alert("이벤트 유형: "+event.type +",이벤트 발생 위치: "
+			+event.pageX+","+event.pageY+"button: "+event.button
+			+"clientX:" +event.clientX+", screenX: "+event.screenX
+			+",target :" +event.target+", type:"+event.type
+			+",timestamp: "+event.timeStamp+", "
+			+this.src);
+};
+</script>
+
+</body>
+</html>
