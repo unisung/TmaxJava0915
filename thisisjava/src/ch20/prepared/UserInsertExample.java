@@ -1,10 +1,8 @@
-package ch20.stmt;
+package ch20.prepared;
 
-import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.Statement;
 
 //1. 드라이버 로딩
 //2. connection연결객체 얻기
@@ -24,18 +22,25 @@ public class UserInsertExample {
 		  String password="oracle";
 		  conn = //factory패턴(GOF)
 		 DriverManager.getConnection(url, user, password);
+		  
 		//3. sql문작성 dbms에 전달
-		  String sql=new StringBuilder()
-				    .append("insert into users ")
-				    .append("(userid,username,userpassword,userage,useremail)")
-				    .append(" values('hong','홍길동','1234',18,'hong@naver.com')").toString();
+		  String sql="insert into users values(?,?,?,?,?)";
 		  System.out.println(sql);
 		//3-2. 쿼리문 전달객체 생성
-		  Statement stmt = conn.createStatement();
+		 PreparedStatement pstmt = conn.prepareStatement(sql);
+		 
+		 //값 세팅
+		 //3-2-1.
+		   pstmt.setString(1, "hong");
+		   pstmt.setString(2, "홍길동");
+		   pstmt.setString(3, "1234");
+		   pstmt.setInt(4, 25);
+		   pstmt.setString(5,"hong@naver.com");
+		   
 		//3-3. 쿼리문 전달 및 실행 
 		//-- insert/update/delete 일때 executeUpdate()
 		//return값은 입력/수정/삭제한 행의 수
-		  int result =stmt.executeUpdate(sql);
+		  int result =pstmt.executeUpdate();
 		  if(result>0) System.out.println(result+"행이 입력됨");
 		  //java프로그램은 auto commit모드
 	 }catch(Exception e) {
