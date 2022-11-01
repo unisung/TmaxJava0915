@@ -19,10 +19,11 @@ public class UserSelectExample7 {
 		  String password="oracle";
 		  conn = DriverManager.getConnection(url, user, password);
 		  
-		  System.out.println("조회할 나이를 입력하세요>");
-		  int  userAge = scanner.nextInt();
+		  System.out.println("조회할 이름을 입력하세요>");
+		  String  userName = scanner.next();
 		  //sql문 작성
-		  String sql ="select * from users where userage="+userAge;
+		  String sql 
+		  ="select * from users where username like '%'||'"+userName+"'||'%'";
 		  System.out.println("완성된 sql문:" +sql);
 		  //sql문 전달 객체 를 생성
 		  Statement stmt = conn.createStatement();
