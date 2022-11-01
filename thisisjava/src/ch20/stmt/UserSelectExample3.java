@@ -1,14 +1,12 @@
-package ch20;
+package ch20.stmt;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.Scanner;
 
-public class UserSelectExample5 {
+public class UserSelectExample3 {
 	public static void main(String[] args) {
-	 Scanner scanner = new Scanner(System.in);
 	 Connection conn=null;  
 	try {
 		  //1-1.드라이버로딩
@@ -18,12 +16,8 @@ public class UserSelectExample5 {
 		  String user="java";
 		  String password="oracle";
 		  conn = DriverManager.getConnection(url, user, password);
-		  
-		  System.out.println("조회할 id를 입력하세요>");
-		  String userid = scanner.next();
 		  //sql문 작성
-		  String sql ="select * from users where userid='"+userid+"'";
-		  System.out.println("완성된 sql문:" +sql);
+		  String sql ="select * from users where userid='hong'";
 		  //sql문 전달 객체 를 생성
 		  Statement stmt = conn.createStatement();
 		  //sql문 실행하고 결과
@@ -31,7 +25,7 @@ public class UserSelectExample5 {
 		  ResultSet rs= stmt.executeQuery(sql);
 		  
 		  //결과보기
-		  if(rs.next()) {
+		  while(rs.next()) {
 			 int i=0;
 			 /* 인덱스 번호(1부터 시작)로 접근 */
 			 String id=rs.getString(++i);

@@ -1,8 +1,7 @@
-package ch20;
+package ch20.stmt;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Scanner;
 //1. 드라이버 로딩
@@ -10,13 +9,11 @@ import java.util.Scanner;
 //3. sql문작성 dbms에 전달
 //4. 결과 확인
 //5. 자원해제
-public class UserInsertExample5 {
+public class UserUpdateExample2 {
 	public static void main(String[] args) {
 	 Scanner scanner = new Scanner(System.in);
 	 //1. 
 		Connection conn=null;
-		//Connection conn2=null;
-		
 	 try {
 		  //1-1.드라이버로딩
 		 Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -27,36 +24,23 @@ public class UserInsertExample5 {
 		  conn = //factory패턴(GOF)
 		 DriverManager.getConnection(url, user, password);
 		 
-		 System.out.println("id,name,pwd,email,age >");
+		 System.out.println("수정할 id를 입력>");
 		 String id=scanner.next();
+		 System.out.println("수정할 name을 입력>");
 		 String name=scanner.next();
-		 String pwd=scanner.next();
-		 String email=scanner.next();
-		 int age=scanner.nextInt();
-		  String sql="insert into users values('"+id+"','"+name+"','"+pwd+"',"+age+",'"+email+"')";
+		
+		//3. sql문작성 dbms에 전달
+		  String sql
+		  ="update users set username ='"+name+"' where userid='"+id+"'";
 		  System.out.println(sql);
+		//3-2. 쿼리문 전달객체 생성
 		  Statement stmt = conn.createStatement();
+		//3-3. 쿼리문 전달 및 실행 
+		//-- insert/update/delete 일때 executeUpdate()
+		//return값은 입력/수정/삭제한 행의 수
 		  int result =stmt.executeUpdate(sql);
-		  if(result>0) System.out.println(result+"행이 입력됨");
-		  
-		  //입력결과 조회
-		  //conn2=DriverManager.getConnection(url, user, password);
-		  sql ="select * from users";
-		  //sql문 전달 객체 를 생성
-		  //stmt = conn2.createStatement();
-		  //sql문 실행하고 결과
-		  //--select문은 executeQuery()로 실행
-		  ResultSet rs= stmt.executeQuery(sql);
-		  
-		  //결과보기
-		  while(rs.next()) {
-			  id=rs.getString("userid");
-			  name=rs.getString("username");
-			  pwd=rs.getString("userpassword");
-			  age=rs.getInt("userage");
-			  email=rs.getString("useremail");
-			System.out.println(id+","+name+","+pwd+","+age+","+email);
-		  }
+		  if(result>0) System.out.println(result+"행이 수정됨");
+		  //java프로그램은 auto commit모드
 	 }catch(Exception e) {
 		 System.out.println(e.getMessage());
 	 }finally {

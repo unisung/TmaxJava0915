@@ -1,16 +1,17 @@
-package ch20;
+package ch20.stmt;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
-
+import java.util.Scanner;
 //1. 드라이버 로딩
 //2. connection연결객체 얻기
 //3. sql문작성 dbms에 전달
 //4. 결과 확인
 //5. 자원해제
-public class UserInsertExample {
+public class UserInsertExample4 {
 	public static void main(String[] args) {
+	 Scanner scanner = new Scanner(System.in);
 	 //1. 
 		Connection conn=null;
 	 try {
@@ -22,11 +23,15 @@ public class UserInsertExample {
 		  String password="oracle";
 		  conn = //factory패턴(GOF)
 		 DriverManager.getConnection(url, user, password);
+		 
+		 System.out.println("id,name,pwd,email,age >");
+		 String id=scanner.next();
+		 String name=scanner.next();
+		 String pwd=scanner.next();
+		 String email=scanner.next();
+		 int age=scanner.nextInt();
 		//3. sql문작성 dbms에 전달
-		  String sql=new StringBuilder()
-				    .append("insert into users ")
-				    .append("(userid,username,userpassword,userage,useremail)")
-				    .append(" values('hong','홍길동','1234',18,'hong@naver.com')").toString();
+		  String sql="insert into users values('"+id+"','"+name+"','"+pwd+"',"+age+",'"+email+"')";
 		  System.out.println(sql);
 		//3-2. 쿼리문 전달객체 생성
 		  Statement stmt = conn.createStatement();

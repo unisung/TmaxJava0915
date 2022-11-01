@@ -1,4 +1,4 @@
-package ch20;
+package ch20.stmt;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

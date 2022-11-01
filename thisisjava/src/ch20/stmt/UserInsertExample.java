@@ -1,17 +1,16 @@
-package ch20;
+package ch20.stmt;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
-import java.util.Scanner;
+
 //1. 드라이버 로딩
 //2. connection연결객체 얻기
 //3. sql문작성 dbms에 전달
 //4. 결과 확인
 //5. 자원해제
-public class UserUpdateExample2 {
+public class UserInsertExample {
 	public static void main(String[] args) {
-	 Scanner scanner = new Scanner(System.in);
 	 //1. 
 		Connection conn=null;
 	 try {
@@ -23,15 +22,11 @@ public class UserUpdateExample2 {
 		  String password="oracle";
 		  conn = //factory패턴(GOF)
 		 DriverManager.getConnection(url, user, password);
-		 
-		 System.out.println("수정할 id를 입력>");
-		 String id=scanner.next();
-		 System.out.println("수정할 name을 입력>");
-		 String name=scanner.next();
-		
 		//3. sql문작성 dbms에 전달
-		  String sql
-		  ="update users set username ='"+name+"' where userid='"+id+"'";
+		  String sql=new StringBuilder()
+				    .append("insert into users ")
+				    .append("(userid,username,userpassword,userage,useremail)")
+				    .append(" values('hong','홍길동','1234',18,'hong@naver.com')").toString();
 		  System.out.println(sql);
 		//3-2. 쿼리문 전달객체 생성
 		  Statement stmt = conn.createStatement();
@@ -39,7 +34,7 @@ public class UserUpdateExample2 {
 		//-- insert/update/delete 일때 executeUpdate()
 		//return값은 입력/수정/삭제한 행의 수
 		  int result =stmt.executeUpdate(sql);
-		  if(result>0) System.out.println(result+"행이 수정됨");
+		  if(result>0) System.out.println(result+"행이 입력됨");
 		  //java프로그램은 auto commit모드
 	 }catch(Exception e) {
 		 System.out.println(e.getMessage());

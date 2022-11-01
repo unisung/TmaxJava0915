@@ -1,4 +1,4 @@
-package ch20;
+package ch20.stmt;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,7 +8,7 @@ import java.sql.Statement;
 //3. sql문작성 dbms에 전달
 //4. 결과 확인
 //5. 자원해제
-public class UserInsertExample2 {
+public class UserInsertExample3 {
 	public static void main(String[] args) {
 	 //1. 
 		Connection conn=null;
@@ -21,11 +21,13 @@ public class UserInsertExample2 {
 		  String password="oracle";
 		  conn = //factory패턴(GOF)
 		 DriverManager.getConnection(url, user, password);
+		 String id="kang";
+		 String name="강길동";
+		 String pwd="1234";
+		 String email="kang@gmail.com";
+		 int age=20;
 		//3. sql문작성 dbms에 전달
-		  String sql=new StringBuilder()
-				    .append("insert into users ")
-				    .append("(userid,username,userpassword,userage,useremail)")
-				    .append(" values('kim','김길동','1234',25,'kim@daum.net')").toString();
+		  String sql="insert into users values('"+id+"','"+name+"','"+pwd+"',"+age+",'"+email+"')";
 		  System.out.println(sql);
 		//3-2. 쿼리문 전달객체 생성
 		  Statement stmt = conn.createStatement();
