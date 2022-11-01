@@ -15,6 +15,8 @@ public class UserInsertExample5 {
 	 Scanner scanner = new Scanner(System.in);
 	 //1. 
 		Connection conn=null;
+		//Connection conn2=null;
+		
 	 try {
 		  //1-1.드라이버로딩
 		 Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -38,10 +40,10 @@ public class UserInsertExample5 {
 		  if(result>0) System.out.println(result+"행이 입력됨");
 		  
 		  //입력결과 조회
-		  conn=DriverManager.getConnection(url, user, password);
+		  //conn2=DriverManager.getConnection(url, user, password);
 		  sql ="select * from users";
 		  //sql문 전달 객체 를 생성
-		  stmt = conn.createStatement();
+		  //stmt = conn2.createStatement();
 		  //sql문 실행하고 결과
 		  //--select문은 executeQuery()로 실행
 		  ResultSet rs= stmt.executeQuery(sql);
