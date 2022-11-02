@@ -145,7 +145,6 @@ private void delete(Board board) {
 		e.printStackTrace();
 		exit();
 	 }
-
 	list();
 }
 
