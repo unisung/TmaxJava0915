@@ -23,7 +23,7 @@ public class FunctionCallExample2 {
 			  String sql="{? = call user_login(?,?)}";
 			  CallableStatement cstmt = conn.prepareCall(sql);
 			  
-			  //
+			  
 			  System.out.println("id를 입력하세요>");
 			  String id=scanner.next().trim();
 			  System.out.println("password를 입력하세요>");
