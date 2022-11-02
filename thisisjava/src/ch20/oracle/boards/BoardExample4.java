@@ -98,20 +98,88 @@ try {
 	//3-3. 쿼리문 전달 및 실행 
 	ResultSet rs= pstmt.executeQuery();
 	while(rs.next()) {
+		Board board = new Board();
+		board.setBno(rs.getInt("bno"));
+		board.setBtitle(rs.getString("btitle"));
+		board.setBcontent(rs.getString("bcontent"));
+		board.setBwriter(rs.getString("bwriter"));
+		board.setBdate(rs.getDate("bdate"));
+		
 		System.out.println("####################");
-		System.out.println("번호:"+rs.getInt("bno"));
-		System.out.println("제목:"+rs.getString("btitle"));
-		System.out.println("내용:"+rs.getString("bcontent"));
-		System.out.println("작성자:"+rs.getString("bwriter"));
-		System.out.println("날짜:"+rs.getString("bdate"));
+		System.out.println("번호:"+board.getBno());
+		System.out.println("제목:"+board.getBtitle());
+		System.out.println("내용:"+board.getBcontent());
+		System.out.println("작성자:"+board.getBwriter());
+		System.out.println("날짜:"+board.getBdate());
+	 //보조메뉴 출력
+System.out.println("-------------------------------------------------------------------");
+System.out.println("보조 메뉴: 1.Update | 2.Delete | 3.List");
+System.out.print("메뉴 선택: ");
+String menuNo = scanner.nextLine();
+System.out.println();
+
+if(menuNo.equals("1")) {
+	update(board);
+}else if(menuNo.equals("2")) {
+	delete(board);
+}	
 	}
 }catch(Exception e) {
 	e.printStackTrace();
 	exit();
 }
-
+//3번이면 list
 list();
 }//read() 끝.
+
+private void delete(Board board) {
+	try {
+		 conn=getConnection();
+		 String sql="delete from boards where bno=?";
+			//3-2. 쿼리문 전달객체 생성
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setInt(1, board.getBno());
+		//3-3. 쿼리문 전달 및 실행 
+		pstmt.executeUpdate();	
+	}catch(Exception e) {
+		e.printStackTrace();
+		exit();
+	 }
+
+	list();
+}
+
+private void update(Board board) {
+	//수정할 내용 입력받기
+	System.out.println("[수정 내용 입력]");
+	System.out.print("제목: ");
+	board.setBtitle(scanner.nextLine());
+	System.out.print("내용: ");
+	board.setBcontent(scanner.nextLine());
+	System.out.print("작성자: ");
+	board.setBwriter(scanner.nextLine());
+
+	try {
+		 conn=getConnection();
+		 String sql="update boards set btitle=?,bcontent=?, "
+		 		  + " bwriter=? where bno=?";
+			//3-2. 쿼리문 전달객체 생성
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		
+		pstmt.setString(1,board.getBtitle());
+		pstmt.setString(2,board.getBcontent());
+		pstmt.setString(3,board.getBwriter());
+		pstmt.setInt(4, board.getBno());
+		
+		//3-3. 쿼리문 전달 및 실행 
+		pstmt.executeUpdate();	
+	}catch(Exception e) {
+		e.printStackTrace();
+		exit();
+	 }
+
+	list();
+}
 
 public void create() {
 	System.out.println("***create()메소드 실행 "); 
@@ -160,5 +228,5 @@ Connection getConnection() {
 		e.printStackTrace();
 	}
 	return conn;
- }
+  }
 }
