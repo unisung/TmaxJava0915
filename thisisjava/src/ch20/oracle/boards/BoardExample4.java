@@ -80,7 +80,39 @@ case "4" : exit(); break;
 
 private void exit() {System.exit(0);}
 public void clear() {System.out.println("***clear()메소드 실행 "); list();}
-public void read() {System.out.println("***read()메소드 실행 ");  list();}
+public void read() {
+System.out.println("***read()메소드 실행 ");  
+//입력 받기
+System.out.println("[게시물 읽기]");
+System.out.print("bno: "); 	
+int bno = Integer.parseInt(scanner.nextLine());
+try {
+	 conn=getConnection();
+	 String sql="select bno,btitle,bcontent,bwriter, bdate "
+	 		  + " from boards "
+	 		  + " where bno=?";
+		//3-2. 쿼리문 전달객체 생성
+	PreparedStatement pstmt = conn.prepareStatement(sql);
+	pstmt.setInt(1,bno);
+	
+	//3-3. 쿼리문 전달 및 실행 
+	ResultSet rs= pstmt.executeQuery();
+	while(rs.next()) {
+		System.out.println("####################");
+		System.out.println("번호:"+rs.getInt("bno"));
+		System.out.println("제목:"+rs.getString("btitle"));
+		System.out.println("내용:"+rs.getString("bcontent"));
+		System.out.println("작성자:"+rs.getString("bwriter"));
+		System.out.println("날짜:"+rs.getString("bdate"));
+	}
+}catch(Exception e) {
+	e.printStackTrace();
+	exit();
+}
+
+list();
+}//read() 끝.
+
 public void create() {
 	System.out.println("***create()메소드 실행 "); 
 //입력받기
