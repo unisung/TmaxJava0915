@@ -81,7 +81,13 @@ case "4" : exit(); break;
 private void exit() {System.exit(0);}
 public void clear() {System.out.println("***clear()메소드 실행 "); list();}
 public void read() {System.out.println("***read()메소드 실행 ");  list();}
-public void create() {System.out.println("***create()메소드 실행 "); list();}
+public void create() {
+	System.out.println("***create()메소드 실행 "); 
+
+
+
+list();
+}
 
 Connection getConnection() {
 	Connection conn = null;
