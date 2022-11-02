@@ -8,5 +8,6 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/admin/git/TmaxJava0915/thisisjava/src/ch19/sec06/json-20220924.jar"/>
 	<classpathentry kind="lib" path="C:/oraclexe/app/oracle/product/11.2.0/server/jdbc/lib/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="E:/Tmax취업연계/lombok.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
