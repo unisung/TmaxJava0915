@@ -12,7 +12,11 @@
 List<Todo> todoList  = (List<Todo>)request.getAttribute("todolist");
 for(int i=0;i<todoList.size();i++){
 	Todo todo = todoList.get(i);
-	out.print(todo+"<br>");
+	out.print(todo.getTno()+", ");
+	out.print(todo.getTitle()+", ");
+	out.print(todo.getTodoContent()+", ");
+	out.print(todo.getDueDate()+", ");
+	out.print(todo.getEndDate()+"<br>");
 }
 %>
 </body>
