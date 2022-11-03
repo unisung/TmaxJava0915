@@ -2,7 +2,8 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html><html><head><meta charset="UTF-8">
+<!DOCTYPE html><html><head>
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
@@ -10,14 +11,13 @@
 <%
 List<Todo> todoList  = (List<Todo>)request.getAttribute("todolist");
 for(int i=0;i<todoList.size();i++){
-	Todo todo = todoList.get(i); %>
-	<!-- expression(표현식) -->
-	<%=todo.getTno()+", "%>
-	<%=todo.getTitle()+", "%>
-	<%=todo.getTodoContent()+", "%>
-	<%=todo.getDueDate()+", "%>
-	<%=todo.getEndDate()+""%><br>
-<%}
+	Todo todo = todoList.get(i);
+	out.print(todo.getTno()+", ");
+	out.print(todo.getTitle()+", ");
+	out.print(todo.getTodoContent()+", ");
+	out.print(todo.getDueDate()+", ");
+	out.print(todo.getEndDate()+"<br>");
+}
 %>
 </body>
 </html>
