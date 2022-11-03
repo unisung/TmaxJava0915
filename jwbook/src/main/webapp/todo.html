@@ -14,8 +14,9 @@ function addItem(){
 	//li요소에 닫기(x)버턴 생성
 	let xbtn = document.createElement('button');
 	
-	listitem.className = '';
+	listitem.className = 'd-flex list-group-item list-group-item-action list-group-item-warning';
 	
+	xbtn.className ='btn-close ms-auto';
 	//close버튼 이벤트 처리
 	xbtn.onclick=function(e){
 		let pnode = e.target.parentNode;
