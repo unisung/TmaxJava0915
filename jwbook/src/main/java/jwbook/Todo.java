@@ -47,6 +47,11 @@ public class Todo {
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
+	@Override
+	public String toString() {
+		return "Todo [tno=" + tno + ", title=" + title + ", todoContent=" + todoContent + ", dueDate=" + dueDate
+				+ ", endDate=" + endDate + "]";
+	}
 	
 	
 	
