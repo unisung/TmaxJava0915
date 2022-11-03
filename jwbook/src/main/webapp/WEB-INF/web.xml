@@ -15,4 +15,14 @@
    <url-pattern>/hi</url-pattern>
   </servlet-mapping>
   -->
+ <servlet>
+    <servlet-name>inputServlet</servlet-name>
+    <servlet-class>jwbook.InputServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+   <servlet-name>inputServlet</servlet-name>
+   <url-pattern>/calc/input</url-pattern>
+  </servlet-mapping>
+  
 </web-app>
