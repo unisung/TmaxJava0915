@@ -18,8 +18,9 @@
     pageContext.setAttribute("names", names);
 %>
 <jsp:useBean id="user" class="jwbook.model.Member" 
-             scope="request"></jsp:useBean>
+             scope="session"></jsp:useBean>
 <jsp:setProperty property="name" name="user" value="홍길동"/>
+<jsp:forward page="forwarded.jsp"></jsp:forward>
 </head>
 <body>
 <%-- Expression Language(EL) <%=%> -> ${속성} --%>
