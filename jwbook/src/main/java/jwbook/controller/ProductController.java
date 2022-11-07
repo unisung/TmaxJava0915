@@ -21,18 +21,13 @@ public class ProductController extends HttpServlet {
 	
 	ProductService service;
 
-	//서블릿이 초기화될때 서비스객체가 주입됨.
-	public void init(ServletConfig config) throws ServletException {
-	    System.out.println("초기화....");
-		super.init(config);
-		service = new ProductService();
-	}
 
 	@Override
 	protected void service(HttpServletRequest request, 
 			               HttpServletResponse response) 
 			            		   throws ServletException, IOException {
-     String action=request.getParameter("action");
+     System.out.println("서비스호출....");
+	 String action=request.getParameter("action");
      String view="";
      
      if(action==null) {
@@ -73,4 +68,10 @@ public class ProductController extends HttpServlet {
 		return "/productList.jsp";//이동할 페이지
 	}
 
+	//서블릿이 초기화될때 서비스객체가 주입됨.
+	public void init(ServletConfig config) throws ServletException {
+		System.out.println("초기화....");
+		super.init(config);
+		service = new ProductService();
+	}
 }
