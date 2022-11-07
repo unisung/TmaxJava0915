@@ -20,11 +20,16 @@ List<Member>mlist =(List<Member>)request.getAttribute("mlist");
 <%} %>
 
 <hr>
-<% 
-	for(Member m:mlist){
-%>
-${m}<br>
-<%} %>
+
+<c:forEach var="i" begin="1" end="10">
+  ${i}<br><%-- out.print(i); --%>
+</c:forEach>
+<hr>
+
+<hr>
+<c:forEach var="mem" items="${mlist}">
+  ${mem.name},${mem.email}<br><%-- out.print(mem.getName()); --%>
+</c:forEach>
 
 
 </body>
