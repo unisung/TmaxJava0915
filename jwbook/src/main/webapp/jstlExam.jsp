@@ -64,7 +64,9 @@
 <hr>
 <hr>
 <h3>forTokens</h3>
-<c:forTokens items="Seoul|Tokyo|New York|Toronto" 
+<c:set  var="cities" value="Seoul|Tokyo|New York|Toronto"/>
+
+<c:forTokens items="${cities}" 
              delims="|" var="city" varStatus="i">
 <c:if test="${i.first}">도시목록</c:if>
 ${city}
