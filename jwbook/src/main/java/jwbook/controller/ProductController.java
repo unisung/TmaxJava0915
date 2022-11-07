@@ -1,6 +1,7 @@
 package jwbook.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
@@ -40,8 +41,13 @@ public class ProductController extends HttpServlet {
     	                    .forward(request, response);
      }else {
     	 switch(action) {
-    	 case "list":view = list(request,response); break;
-    	 case "info":view = info(request,response); break;
+    	 case "list":
+    		         view = list(request,response); 
+    		         break;
+    	 case "info": info(request,response); 
+    	              view="/productInfo.jsp";
+    	 
+    	 break;
     	 }
     	 RequestDispatcher dispatcher
     	  = request.getRequestDispatcher(view);
@@ -62,7 +68,8 @@ public class ProductController extends HttpServlet {
 
 	private String list(HttpServletRequest request, HttpServletResponse response) {
 		//service의 findAll()메소드로 리스트 추출하여 request에 담기
-		request.setAttribute("products", service.findAll());
+		List<Product> products = service.findAll();
+		request.setAttribute("products", products);
 		return "/productList.jsp";//이동할 페이지
 	}
 
