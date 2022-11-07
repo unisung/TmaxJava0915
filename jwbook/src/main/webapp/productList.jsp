@@ -10,7 +10,7 @@
 <table border="1">
 <tr><th>번호</th><th>상품명</th><th>가격</th></tr>
 <c:forEach var="p" items="${products}" varStatus="i">
-  <tr><td>${i.count}</td><td>${p.name}</td><td>${p.price}</td></tr>
+  <tr><td>${i.count}</td><td><a href='/jwbook/pcontrol?action=info&id=${p.id}'>${p.name}</a></td><td>${p.price}</td></tr>
 </c:forEach>
 </table>
 </body>

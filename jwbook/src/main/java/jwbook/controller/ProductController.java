@@ -1,6 +1,8 @@
 package jwbook.controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import jwbook.model.Product;
 import jwbook.service.ProductService;
 
 
@@ -40,15 +43,20 @@ public class ProductController extends HttpServlet {
     	 case "list":view = list(request,response); break;
     	 case "info":view = info(request,response); break;
     	 }
-    	 getServletContext().getRequestDispatcher(view)
-         .forward(request, response); 
+    	 RequestDispatcher dispatcher
+    	  = request.getRequestDispatcher(view);
+    	 dispatcher.forward(request, response);
+    	 //getServletContext().getRequestDispatcher(view).forward(request, response); 
      }
 		
-	}
+}
 
 	private String info(HttpServletRequest request, HttpServletResponse response) {
 		//service의 find(id)메소드로 리스트 추출하여 request에 담기
-		request.setAttribute("p", service.find(request.getParameter("id"))); 
+		String id=request.getParameter("id");
+		Product product = service.find(id);
+		request.setAttribute("p", product);
+		//request.setAttribute("p", service.find(request.getParameter("id"))); 
 		return "/productInfo.jsp";
 	}
 
@@ -57,7 +65,5 @@ public class ProductController extends HttpServlet {
 		request.setAttribute("products", service.findAll());
 		return "/productList.jsp";//이동할 페이지
 	}
-
-	
 
 }
