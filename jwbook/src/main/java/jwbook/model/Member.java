@@ -6,6 +6,8 @@ public class Member {
 	private String email;
 	
 	
+	
+	public Member() {}
 	public Member(String name, String email) {
 		this.name = name;
 		this.email = email;
