@@ -15,7 +15,7 @@ h2{border-radius: 5px; background-color:wheat; text-align:center;
  <h2><b>회원가입</b></h2>
  <hr>
  <div id="regform">
-  <form name='form1' action="useBeanExam2.jsp" method="post">
+  <form name='form1' action="useBeanExam3.jsp" method="post">
    <label>이름</label>
    <input type='text' name='name' value='일지매' size="40"><br>
    <hr>
