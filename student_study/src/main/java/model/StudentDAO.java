@@ -83,4 +83,24 @@ public class StudentDAO {
 		}
 		return s;
 	}
+
+	public void insert(Student s) {
+		open();
+		try {
+			String sql="insert into student "
+					  +" values(student_seq.nextval,?,?,?,?)";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, s.getName());
+			pstmt.setString(2, s.getSchool());
+			pstmt.setString(3, s.getBirth());
+			pstmt.setString(4, s.getEmail());
+			
+			pstmt.executeUpdate();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+	}
 }

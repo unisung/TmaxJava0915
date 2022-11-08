@@ -33,6 +33,8 @@ public class StudentController extends HttpServlet {
 
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+		
 		String uri=request.getRequestURI();
 		System.out.println("uri:"+uri);
 		String conPath = request.getContextPath();
@@ -44,10 +46,26 @@ public class StudentController extends HttpServlet {
 		ActionCommand actionCommand = contList.get(command);
 		System.out.println(actionCommand);
 		
+		
 		String view=actionCommand.action(request, response);
+		
+		/*
+		 * System.out.println(((view==null) |view.length()==0)?"리다이렉트":"포워드");
+		 * if(((view==null) |view.length()==0)) response.sendRedirect(view);
+		 */
+	    
+	    if(view.indexOf(":")>=0) {
+	    	System.out.println("x");
+	    	System.out.println("리다이렉트경로");
+	    	view=view.substring(view.lastIndexOf("/")+1);
+	    	response.sendRedirect(view);
+	    	//response.sendRedirect("list.do");
+	    }else {	
+	    	System.out.println("y");
 		RequestDispatcher dispatcher
 		  = request.getRequestDispatcher(view);
 		 dispatcher.forward(request, response);
+	    }
 	}
 
 }

@@ -27,4 +27,8 @@ public List<Student> findAll(){
 public Student find(int seq) {
 	return dao.getInfo(seq);
  }
+
+public void insertStudent(Student s) {
+	dao.insert(s);
+}
 }
