@@ -6,10 +6,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-<c:forEach>
-
-//학생 리스트 -> <a>상세정보</a>
+<c:if test="${!empty list }">
+<ul>
+<c:forEach var="student" items="${list}">
+  <li><a href="/student_study/student/info.do?seq=${student.seq}">${student.seq}</a>-${student.name}-${student.school}
+      -${student.birth}-${student.email}</li>
 </c:forEach>
+</ul>
+</c:if>
 
 </body>
 </html>
