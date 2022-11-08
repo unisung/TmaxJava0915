@@ -20,3 +20,6 @@ insert into student
 values(student_seq.nextval,'홍길동','AA대학교','1999-12-10','hong@aa.com');
 
 select * from student;
+
+select * from student where id=1;
+
