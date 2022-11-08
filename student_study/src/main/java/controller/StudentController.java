@@ -26,6 +26,9 @@ public class StudentController extends HttpServlet {
 		contList = new HashMap();
 		contList.put("/student/list.do",new ListAction());
 		contList.put("/student/info.do",new InfoAction());
+		contList.put("/student/inputForm.do",new InputFormAction());
+		contList.put("/student/insert.do",new InsertAction());
+		
 	}
 
 
