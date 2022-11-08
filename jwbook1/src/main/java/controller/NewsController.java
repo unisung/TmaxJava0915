@@ -103,14 +103,14 @@ public String addNews(HttpServletRequest request) {
 		e.printStackTrace();
 		ctx.log("뉴스 추가 과정에서 문제 발생!!");
 		request.setAttribute("error", "뉴스가 정상적으로 등록되지 않았습니다!!");
-		//return listNews(request);	
+		return listNews(request);	
 	}
  return "redirect:/news.nhn?action=listNews";	
 } 
 
 //public String deleteNews(HttpServletRequest request) {}
 
-//public String listNews(HttpServletRequest request) {}
+public String listNews(HttpServletRequest request) {return "/newsList.jsp";}
 	
 //public String getNews(HttpServletRequest request) {}
 	 
