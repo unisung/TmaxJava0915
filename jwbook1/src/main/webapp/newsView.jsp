@@ -17,7 +17,7 @@
     <div class="card w-75 mx-auto">
 	    <img class="card-img-top" src="${news.img}"> 
 	    <div class="card-body">
-	    	<h4 class="card-title">Date: ${news.date}</h4>
+	    	<h4 class="card-title">Date: ${news.regDate}</h4>
 	    	<p class="card-text">Content: ${news.content}</p>
 	    </div>
     </div>

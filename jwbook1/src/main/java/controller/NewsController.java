@@ -2,6 +2,9 @@ package controller;
 
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.sql.SQLException;
+import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
@@ -108,11 +111,48 @@ public String addNews(HttpServletRequest request) {
  return "redirect:/news.nhn?action=listNews";	
 } 
 
-//public String deleteNews(HttpServletRequest request) {}
+public String deleteNews(HttpServletRequest request) {
+	int aid = Integer.parseInt(request.getParameter("aid"));
+	try {
+		dao.delNews(aid);
+	} catch (SQLException e) {
+		e.printStackTrace();
+		ctx.log("뉴스 삭제 과정에서 문제 발생!!");
+		request.setAttribute("error", "뉴스가 정상적으로 삭제되지 않았습니다!!");
+		return listNews(request);
+	}
+	return "redirect:/news.nhn?action=listNews";		
+}
 
-public String listNews(HttpServletRequest request) {return "/newsList.jsp";}
+public String listNews(HttpServletRequest request) {
+  List<News> list;
+  try {
+	  list = dao.getAll();
+	  request.setAttribute("newslist", list);
+  }catch(Exception e) {
+	  e.printStackTrace();
+	  ctx.log("뉴스 목록 생성과정에서 문제발생!!!!!");
+	  request.setAttribute("error", "뉴스 목록이 정상적으로 처리되지 않았습니다!!");
+  }
+  
+ return "/newsList.jsp";
+}
 	
-//public String getNews(HttpServletRequest request) {}
+public String getNews(HttpServletRequest request) {
+    int aid = Integer.parseInt(request.getParameter("aid"));
+    try {
+		News n = dao.getNews(aid);
+		request.setAttribute("news", n);
+	} catch (SQLException e) {
+		e.printStackTrace();
+		ctx.log("뉴스를 가져오는 과정에서 문제 발생!!");
+		request.setAttribute("error", "뉴스를 정상적으로 가져오지 못했습니다!!");
+	}
+
+	return "/newsView.jsp";	
+	
+	
+}
 	 
 // multipart 헤더에서 파일이름 추출 
 private String getFilename(Part part) {

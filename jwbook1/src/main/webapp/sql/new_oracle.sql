@@ -7,3 +7,5 @@ CREATE TABLE news (
 );
 
 create sequence new_seq;
+
+select * from news;
