@@ -5,3 +5,5 @@ CREATE TABLE news (
 	regdate date default sysdate,
 	content VARCHAR2(4000) NOT NULL
 );
+
+create sequence new_seq;
