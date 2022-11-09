@@ -18,7 +18,6 @@ import jwbook.model.Product;
 import jwbook.service.ProductService;
 import jwbook.service.ProductServiceMybatis;
 
-
 @WebServlet("/pcontrol")
 public class ProductController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -34,12 +33,14 @@ public class ProductController extends HttpServlet {
      System.out.println("서비스호출....");
 	 String action=request.getParameter("action");
      String view="";
+     System.out.println("action:"+action);
      
      if(action==null) {
     	 view="/pcontrol?action=list";
     	 getServletContext().getRequestDispatcher(view)
     	                    .forward(request, response);
      }else {
+    	
     	 switch(action) {
     	 case "list":
     		         view = list(request,response); 
@@ -55,7 +56,10 @@ public class ProductController extends HttpServlet {
     	              break;
     	 case "update": update(request,response); 
          				view="/pcontrol?action=list";
-                      break;    	              
+                      break;
+    	 case "delete": delete(request,response);
+    	 				view="/pcontrol?action=list";
+    	 			  break; 
     	 }
     	 RequestDispatcher dispatcher
     	  = request.getRequestDispatcher(view);
@@ -65,6 +69,10 @@ public class ProductController extends HttpServlet {
 		
 }
 
+private void delete(HttpServletRequest request, HttpServletResponse response) {
+	   String id=request.getParameter("id");
+	    service.delete(id);
+	}
 
 private void update(HttpServletRequest request, HttpServletResponse response) {
 	try {

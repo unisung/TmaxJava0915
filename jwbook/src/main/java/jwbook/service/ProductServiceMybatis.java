@@ -35,9 +35,19 @@ public class ProductServiceMybatis {
 	}
 
 
-	public void insert(Product product2) {
-		productDAO.insert(product2);
+	public void insert(Product product) {
+		productDAO.insert(product);
 
+	}
+
+
+	public void update(Product product) {
+		productDAO.update(product);
+	}
+
+
+	public void delete(String id) {
+		productDAO.delete(id);
 	}
 
     /*

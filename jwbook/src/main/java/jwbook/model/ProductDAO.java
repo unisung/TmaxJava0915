@@ -104,4 +104,24 @@ public void insert(Product product) {
 		session.close();
 	}
  }
+
+public void update(Product product) {
+	SqlSession session = sqlSessionFactory.openSession();
+	try {
+		session.update("product.update", product);
+	} finally {
+		session.commit();
+		session.close();
+	}
+}
+
+public void delete(String id) {
+	SqlSession session = sqlSessionFactory.openSession();
+	try {
+		session.delete("product.delete", id);
+	} finally {
+		session.commit();
+		session.close();
+	}	
+ }
 }

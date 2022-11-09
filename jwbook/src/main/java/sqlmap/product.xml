@@ -28,11 +28,13 @@
  
     <update id="update" parameterType="Product">
         update Product
-        SET name = #{name}
+        SET name = #{name},
+            maker=#{maker},
+            price=#{price}
         WHERE id = #{id} 
     </update>
  
-    <delete id="delete" parameterType="int">
+    <delete id="delete" parameterType="string">
         DELETE from product WHERE id = #{id}
     </delete>
 </mapper>
