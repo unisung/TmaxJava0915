@@ -1,3 +1,5 @@
+//참고 사이트 - https://huskdoll.tistory.com/401
+
 create table product(
 id varchar2(20) primary key,
 name varchar2(50),
