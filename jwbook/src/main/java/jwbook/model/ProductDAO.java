@@ -94,4 +94,14 @@ public Product selectById(String id) {
 	    }
 	 return product;
   }
+//입력처리
+public void insert(Product product) {
+	SqlSession session = sqlSessionFactory.openSession();
+	try {
+		session.insert("product.insert", product);
+	} finally {
+		session.commit();
+		session.close();
+	}
+ }
 }

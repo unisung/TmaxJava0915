@@ -10,6 +10,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
+
+import org.apache.commons.beanutils.BeanUtils;
 
 import jwbook.model.Product;
 import jwbook.service.ProductService;
@@ -43,7 +46,8 @@ public class ProductController extends HttpServlet {
     		         break;
     	 case "info": info(request,response); 
     	              view="/productInfo.jsp";
-    	 
+    	 case "insert": insert(request,response); 
+                      view="/pcontrol?action=list";
     	 break;
     	 }
     	 RequestDispatcher dispatcher
@@ -53,6 +57,21 @@ public class ProductController extends HttpServlet {
      }
 		
 }
+
+private void insert(HttpServletRequest request, HttpServletResponse response) {
+		try {
+			
+			  Product product = new Product();
+	        // 입력값을 Product 객체로 매핑
+			BeanUtils.populate(product, request.getParameterMap());
+			
+			System.out.println("id:"+product.getId());
+			service.insert(product);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
 
 	private String info(HttpServletRequest request, HttpServletResponse response) {
 		//service의 find(id)메소드로 리스트 추출하여 request에 담기

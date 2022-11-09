@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 				DispatcherType.INCLUDE, 
 				DispatcherType.ERROR
 		}
-					, urlPatterns = { "/ListenerTestServlet" })
+					, urlPatterns = { "/ListenerTestServlet","/pcontrol" })
 public class EncodingFilter extends HttpFilter implements Filter {
     public EncodingFilter() {
         super();

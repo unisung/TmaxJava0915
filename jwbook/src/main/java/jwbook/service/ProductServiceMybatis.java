@@ -34,6 +34,12 @@ public class ProductServiceMybatis {
 		return productDAO.selectById(id);
 	}
 
+
+	public void insert(Product product2) {
+		productDAO.insert(product2);
+
+	}
+
     /*
     //Update
     System.out.println("");
