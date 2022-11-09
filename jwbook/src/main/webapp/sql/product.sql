@@ -14,3 +14,5 @@ insert into product
 values('102','삼전우주폰 12','삼전전자',1300000,'2021.2.2');
 insert into product
 values('103','엘스듀얼폰','엘스전자',1500000,'2020.3.2');
+
+select * from product;

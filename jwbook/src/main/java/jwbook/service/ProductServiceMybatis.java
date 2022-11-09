@@ -7,19 +7,23 @@ import jwbook.model.Product;
 import jwbook.model.ProductDAO;
 
 public class ProductServiceMybatis {
-	ProductDAO productDAO = new ProductDAO(MyBatisConnectionFactory.getSqlSessionFactory());
+	//DAO생성
+	//MyBatisConnectionFactory로 부터 sqlSession얻기
+	ProductDAO productDAO 
+	= new ProductDAO(MyBatisConnectionFactory.getSqlSessionFactory());
     Product product = new Product();
 
     public void create() {
     //Creat
     //2건을 입력한다.
     System.out.println("==INSERT==");
-    productDAO.insert(product);
+   // productDAO.insert(product);
     }
     
     
     //Read
     //입력한 리스트를 보여준다.
+  //상품리스트 출력
     public List<Product> findAll(){
     List<Product> bookList = productDAO.selectAll();
     return bookList;

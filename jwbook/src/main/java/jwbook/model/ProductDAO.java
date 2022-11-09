@@ -6,14 +6,18 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 public class ProductDAO {
+	//sqlsession 얻기
+	//1.SqlSessionFactory객체선언
 	private SqlSessionFactory sqlSessionFactory = null;
 	 
+	//2.생성시 sqlSessionFacotry 초기화
     public ProductDAO(SqlSessionFactory sqlSessionFactory){
         this.sqlSessionFactory = sqlSessionFactory;
     }
  
     public  List<Product> selectAll(){
         List<Product> list = null;
+        //3.getConnection처럼 SqlSession 연결객체 얻기
         SqlSession session = sqlSessionFactory.openSession();
  
         try {
@@ -24,7 +28,7 @@ public class ProductDAO {
  
         return list;
     }
- 
+ /*
     public Product selectById(int id){
         Product product = null;
         SqlSession session = sqlSessionFactory.openSession();
@@ -62,12 +66,12 @@ public class ProductDAO {
             session.close();
         }
     }
- 
+ */
     /**
      * Delete an instance of book from the database.
      * @param id value of the instance to be deleted.
      */
-    public void delete(int id){
+  /*  public void delete(int id){
  
         SqlSession session = sqlSessionFactory.openSession();
  
@@ -78,4 +82,5 @@ public class ProductDAO {
             session.close();
         }
     }
+   */
 }

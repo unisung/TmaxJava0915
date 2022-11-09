@@ -20,6 +20,7 @@ import jwbook.service.ProductServiceMybatis;
 public class ProductController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
+	//ProductService service;
 	ProductServiceMybatis service;
 
 
