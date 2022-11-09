@@ -23,7 +23,7 @@
  
     <insert id="insert" parameterType="Product">
         INSERT INTO product (id, name,maker,price,regdate) 
-        VALUES (#{id}, #{name},#{maker},${price},sysdate)
+        VALUES (#{id}, #{name},#{maker},#{price},sysdate)
     </insert>
  
     <update id="update" parameterType="Product">
