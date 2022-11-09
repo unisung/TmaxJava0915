@@ -14,7 +14,10 @@
  <li>상품명:${p.name}</li>
  <li>제조사:${p.maker}</li>
  <li>가격:${p.price}</li>
- <li>등록일:${p.date}</li>
+ <li>등록일:${p.regdate}</li>
 </ul>
+<div>
+<a href='/jwbook/pcontrol?action=list'>리스트로 가기</a>
+</div>
 </body>
 </html>
