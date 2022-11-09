@@ -46,9 +46,16 @@ public class ProductController extends HttpServlet {
     		         break;
     	 case "info": info(request,response); 
     	              view="/productInfo.jsp";
+    	             break;
     	 case "insert": insert(request,response); 
                       view="/pcontrol?action=list";
-    	 break;
+    	              break;
+    	 case "updateForm":updateForm(request,response); 
+    	              view="/productUpdateForm.jsp";
+    	              break;
+    	 case "update": update(request,response); 
+         				view="/pcontrol?action=list";
+                      break;    	              
     	 }
     	 RequestDispatcher dispatcher
     	  = request.getRequestDispatcher(view);
@@ -57,6 +64,29 @@ public class ProductController extends HttpServlet {
      }
 		
 }
+
+
+private void update(HttpServletRequest request, HttpServletResponse response) {
+	try {
+		  Product product = new Product();
+      // 입력값을 Product 객체로 매핑
+		BeanUtils.populate(product, request.getParameterMap());
+		
+		System.out.println("id:"+product.getId());
+		service.update(product);
+	}catch(Exception e) {
+		e.printStackTrace();
+	}
+		
+	}
+
+
+private void updateForm(HttpServletRequest request, HttpServletResponse response) {
+	String id=request.getParameter("id");
+	 Product product = service.find(id);
+	 request.setAttribute("p", product);	
+}
+
 
 private void insert(HttpServletRequest request, HttpServletResponse response) {
 		try {
