@@ -11,7 +11,7 @@ import javax.ws.rs.core.MediaType;
 public class RestApiExample {
 	
  @GET
- @Produces(MediaType.TEXT_PLAIN)
+ @Produces(MediaType.APPLICATION_JSON)
  public String sayHello() {
 	 return "Hello API Service";
  }
