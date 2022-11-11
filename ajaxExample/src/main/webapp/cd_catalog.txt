@@ -1,0 +1,158 @@
+<artists>
+ <artist>
+ Bob Dylan
+ </artist>
+ <title>
+ Empire Burlesque
+ </title>
+<artist>
+Bonnie Tyler
+ </artist>
+ <title>
+Hide your heart
+ </title> 
+<artist>
+Dolly Parton
+ </artist>
+ <title>
+Greatest Hits
+ </title>  
+<artist>
+Gary Moore
+ </artist>
+ <title>
+Still got the blues
+ </title>   
+<artist>
+Eros Ramazzotti
+ </artist>
+ <title>
+Eros
+ </title> 
+<artist>
+Bee Gees
+ </artist>
+ <title>
+One night only
+ </title> 
+<artist>
+Dr.Hook
+ </artist>
+ <title>
+ Sylvias Mother
+ </title> 
+<artist>
+Rod Stewart
+ </artist>
+ <title>
+Maggie May
+ </title> 
+<artist>
+Andrea Bocelli
+ </artist>
+ <title>
+Romanza
+ </title> 
+<artist>
+Percy Sledge
+ </artist>
+ <title>
+When a man loves a woman
+ </title> 
+<artist>
+Savage Rose
+ </artist>
+ <title>
+Black angel
+ </title>  
+<artist>
+Many
+ </artist>
+ <title>
+1999 Grammy Nominees
+ </title>  
+<artist>
+Kenny Rogers
+ </artist>
+ <title>
+For the good times
+ </title>  
+<artist>
+Will Smith
+ </artist>
+ <title>
+Big Willie style
+ </title>  
+ <artist>
+Van Morrison
+ </artist>
+ <title>
+Tupelo Honey
+ </title> 
+ <artist>
+Jorn Hoel
+ </artist>
+ <title>
+Soulsville
+ </title> 
+ <artist>
+Cat Stevens
+ </artist>
+ <title>
+The very best of
+ </title>
+ <artist>
+Sam Brown
+ </artist>
+ <title>
+Stop
+ </title> 
+ <artist>
+T'Pau
+ </artist>
+ <title>
+Bridge of Spies
+ </title> 
+ <artist>
+Tina Turner
+ </artist>
+ <title>
+Private Dancer
+ </title>  
+ <artist>
+Kim Larsen
+ </artist>
+ <title>
+Midt om natten
+ </title>
+ <artist>
+Luciano Pavarotti
+ </artist>
+ <title>
+Pavarotti Gala Concert
+ </title> 
+ <artist>
+Otis Redding
+ </artist>
+ <title>
+The dock of the bay
+ </title>  
+ <artist>
+Simply Red
+ </artist>
+ <title>
+Picture book
+ </title> 
+ <artist>
+The Communards
+ </artist>
+ <title>
+Red
+ </title>  
+ <artist>
+Joe Cocker
+ </artist>
+ <title>
+Unchain my heart
+ </title>     
+</artists>
