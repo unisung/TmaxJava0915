@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="com.example.news.dao.NewsMapperRepository">
+ 
+    <resultMap id="result" type="news">
+        <result property="aid"  column="aid" /> 
+        <result property="title" column="title"/>   
+        <result property="img" column="img"/>      
+        <result property="regDate" column="regDate"/>   
+        <result property="content" column="content"/>   
+    </resultMap>
+ 
+    <select id="getAll" resultMap="result">
+        select aid, title, regdate as cdate from news
+    </select>
+ 
+    <select id="getNews" parameterType="int" resultMap="result">
+       select aid, title, img, regdate as cdate, content 
+         from news where aid=#{aid}
+    </select>
+ 
+    <insert id="addNews" parameterType="news">
+       insert into news(aid,title,img,regdate,content)
+	    values(new_seq.nextval,#{title},#{img},sysdate,#{content})
+    </insert>
+ 
+<!--  
+    <delete id="delete" parameterType="int">
+       delete from news where aid=#{aid}
+    </delete> -->
+</mapper>
