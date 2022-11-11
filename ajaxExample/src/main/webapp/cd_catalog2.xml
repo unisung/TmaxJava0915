@@ -1,159 +1,211 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <artists>
- <artist>
- Bob Dylan
- </artist>
- <title>
- Empire Burlesque
- </title>
+  <cd>
+	 <artist>
+	 Bob Dylan
+	 </artist>
+	 <title>
+	 Empire Burlesque
+	 </title>
+  </cd>
+  <cd>	 
 <artist>
 Bonnie Tyler
  </artist>
  <title>
 Hide your heart
- </title> 
+ </title>
+ </cd>
+ <cd> 
 <artist>
 Dolly Parton
  </artist>
  <title>
 Greatest Hits
- </title>  
+ </title>
+ </cd>
+ <cd>  
 <artist>
 Gary Moore
  </artist>
  <title>
 Still got the blues
- </title>   
+ </title>
+ </cd>
+ <cd>     
 <artist>
 Eros Ramazzotti
  </artist>
  <title>
 Eros
  </title> 
+ </cd>
+ <cd>  
 <artist>
 Bee Gees
  </artist>
  <title>
 One night only
- </title> 
+ </title>
+ </cd>
+ <cd>  
 <artist>
 Dr.Hook
  </artist>
  <title>
  Sylvias Mother
- </title> 
+ </title>
+ </cd>
+ <cd>  
 <artist>
 Rod Stewart
  </artist>
  <title>
 Maggie May
- </title> 
+ </title>
+ </cd>
+ <cd>   
 <artist>
 Andrea Bocelli
  </artist>
  <title>
 Romanza
- </title> 
+ </title>
+ </cd>
+ <cd>  
 <artist>
 Percy Sledge
  </artist>
  <title>
 When a man loves a woman
- </title> 
+ </title>
+ </cd>
+ <cd>  
 <artist>
 Savage Rose
  </artist>
  <title>
 Black angel
- </title>  
+ </title>
+ </cd>
+ <cd>   
 <artist>
 Many
  </artist>
  <title>
 1999 Grammy Nominees
- </title>  
+ </title>
+ </cd>
+ <cd>    
 <artist>
 Kenny Rogers
  </artist>
  <title>
 For the good times
- </title>  
+ </title>
+ </cd>
+ <cd>    
 <artist>
 Will Smith
  </artist>
  <title>
 Big Willie style
- </title>  
+ </title>
+ </cd>
+ <cd>    
  <artist>
 Van Morrison
  </artist>
  <title>
 Tupelo Honey
  </title> 
+ </cd>
+ <cd>  
  <artist>
 Jorn Hoel
  </artist>
  <title>
 Soulsville
- </title> 
+ </title>
+ </cd>
+ <cd>   
  <artist>
 Cat Stevens
  </artist>
  <title>
 The very best of
  </title>
+ </cd>
+ <cd>  
  <artist>
 Sam Brown
  </artist>
  <title>
 Stop
- </title> 
+ </title>
+ </cd>
+ <cd>   
  <artist>
 T'Pau
  </artist>
  <title>
 Bridge of Spies
- </title> 
+ </title>
+ </cd>
+ <cd>   
  <artist>
 Tina Turner
  </artist>
  <title>
 Private Dancer
- </title>  
+ </title>
+ </cd>
+ <cd>    
  <artist>
 Kim Larsen
  </artist>
  <title>
 Midt om natten
  </title>
+ </cd>
+ <cd>  
  <artist>
 Luciano Pavarotti
  </artist>
  <title>
 Pavarotti Gala Concert
- </title> 
+ </title>
+ </cd>
+ <cd>   
  <artist>
 Otis Redding
  </artist>
  <title>
 The dock of the bay
- </title>  
+ </title>
+ </cd>
+ <cd>    
  <artist>
 Simply Red
  </artist>
  <title>
 Picture book
  </title> 
+ </cd>
+ <cd>  
  <artist>
 The Communards
  </artist>
  <title>
 Red
- </title>  
+ </title>
+ </cd>
+ <cd>   
  <artist>
 Joe Cocker
  </artist>
  <title>
 Unchain my heart
- </title>     
+ </title>
+ </cd>     
 </artists>

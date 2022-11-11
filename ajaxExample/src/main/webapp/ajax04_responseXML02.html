@@ -35,17 +35,21 @@ function loadDoc(){
 }  
 
 function myFunction(xml){
+ //응답:xml데이타
  const xmlDoc = xml.responseXML;
- const x = xmlDoc.getElementsByTagName("CD");
+ //alert(xmlDoc);
+ //cd태그 별로 얻어오기 (배열)
+ const x = xmlDoc.getElementsByTagName("cd");
+ alert(x.length);
  let table = "<tr><th>Artist</th><th>Title</th></tr>";
  for(let i=0;i<x.length;i++){
 	 table += "<tr><td>"+
-	 x[i].getElementsByTagName("Artist")[0].childNodes[0].nodeValue + 
+	 x[i].getElementsByTagName("artist")[0].childNodes[0].nodeValue + 
 	 "</td><td>"+
-	 x[i].getElementsByTagName("Title")[0].childNodes[0].nodeValue +
+	 x[i].getElementsByTagName("title")[0].childNodes[0].nodeValue +
 	 +"</td></tr>";
  }
- document.getElementById("demo").innerHTml=table;
+ document.getElementById("demo").innerHTML=table;
 }
 
 </script>
